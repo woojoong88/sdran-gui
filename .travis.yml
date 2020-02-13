@@ -1,0 +1,18 @@
+sudo: false
+
+services:
+  - docker
+
+notifications:
+  email: false
+
+branches:
+  only:
+    - master
+
+jobs:
+  include:
+    - stage: tests
+      script:
+        - make help
+    
