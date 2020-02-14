@@ -1,5 +1,9 @@
 sudo: false
 
+language: node_js
+node_js:
+  - '12'
+
 services:
   - docker
 
@@ -10,9 +14,12 @@ branches:
   only:
     - master
 
+install:
+  - npm install
+
 jobs:
   include:
     - stage: tests
       script:
-        - make help
+        - make build-gui
     
