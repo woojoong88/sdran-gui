@@ -6,8 +6,12 @@ export GO111MODULE=on
 RAN_SIMULATOR_VERSION := latest
 ONOS_BUILD_VERSION := stable
 
+build-gui: # @HELP build the SDRAN GUI
 build-gui:
 	cd web/sd-ran-gui && npm install && ng build --prod
+
+test: # @HELP run the unit tests and source code validation
+test: build-gui license_check
 
 license_check: # @HELP examine and ensure license headers exist
 	@if [ ! -d "../build-tools" ]; then cd .. && git clone https://github.com/onosproject/build-tools.git; fi
@@ -32,7 +36,8 @@ kind: images
 	@if [ "`kind get clusters`" = '' ]; then echo "no kind cluster found" && exit 1; fi
 	kind load docker-image onosproject/sd-ran-gui:${RAN_SIMULATOR_VERSION}
 
-all: build images
+all: # @HELP build everything
+all: build-gui images
 
 clean: # @HELP remove all the build artifacts
 	rm -rf web/sd-ran-gui/dist web/sd-ran-gui/node_modules
