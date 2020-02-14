@@ -22,9 +22,9 @@ cp -r Github.com/onosproject/ran-simulator/* web/sd-ran-gui/src/app/onos-sdran/p
 rm -rf Github.com
 
 # Add the license text to generated files
-for f in $(find web/sd-ran-gui/src/app/onos-*/proto/github.com/ -type f -name "*.d.ts"); do
-  cat /build-tools/licensing/boilerplate.generatego.txt | sed -e '$a\\' | cat - $f > tempf && mv tempf $f
-done
+#for f in $(find web/sd-ran-gui/src/app/onos-*/proto/github.com/ -type f -name "*.d.ts"); do
+#  cat /build-tools/licensing/boilerplate.generatego.txt | sed -e '$a\\' | cat - $f > tempf && mv tempf $f
+#done
 
 # Remove unused import for gogoproto
 for f in $(find web/sd-ran-gui/src/app/onos-* -type f -name "*ts"); do

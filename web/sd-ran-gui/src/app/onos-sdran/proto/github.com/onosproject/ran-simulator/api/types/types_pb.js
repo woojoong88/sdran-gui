@@ -1,4 +1,4 @@
-// source: github.com/onosproject/sdran-gui/api/types/types.proto
+// source: github.com/onosproject/ran-simulator/api/types/types.proto
 /**
  * @fileoverview
  * @enhanceable
