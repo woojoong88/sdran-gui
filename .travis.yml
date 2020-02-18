@@ -14,8 +14,23 @@ branches:
   only:
     - master
 
+addons:
+  apt:
+    packages:
+      - chromium-browser
+
+cache:
+  directories:
+    - ./web/sd-ran-gui/node_modules
+
+before_install:
+  - cd web/sd-ran-gui
+
 install:
   - npm install
+
+before_script:
+  - cd ../..
 
 jobs:
   include:
@@ -23,4 +38,3 @@ jobs:
       script:
         - make test
         - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/bin/push-images; fi'
-    

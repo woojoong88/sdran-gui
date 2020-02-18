@@ -6,12 +6,15 @@ export GO111MODULE=on
 RAN_SIMULATOR_VERSION := latest
 ONOS_BUILD_VERSION := stable
 
-build-gui: # @HELP build the SDRAN GUI
-build-gui:
-	cd web/sd-ran-gui && npm install && ng build --prod
+web/sd-ran-gui/node_modules/@angular/cli/bin/ng: # @HELP Check if NPM install has been done
+	cd web/sd-ran-gui && npm install
+
+web/sd-ran-gui/dist/sd-ran-gui/index.html: # @HELP Check if "ng build" has been done
+web/sd-ran-gui/dist/sd-ran-gui/index.html: web/sd-ran-gui/node_modules/@angular/cli/bin/ng
+	cd web/sd-ran-gui && ng build --prod
 
 test: # @HELP run the unit tests and source code validation
-test: build-gui license_check
+test: web/sd-ran-gui/dist/sd-ran-gui/index.html license_check
 
 license_check: # @HELP examine and ensure license headers exist
 	@if [ ! -d "../build-tools" ]; then cd .. && git clone https://github.com/onosproject/build-tools.git; fi
@@ -24,11 +27,14 @@ protos: # @HELP compile the protobuf files (using protoc-go Docker)
 		--entrypoint build/bin/compile-protos.sh \
 		onosproject/protoc-go:stable
 
-sd-ran-gui-docker: build-gui # @HELP build onos-gui Docker image
+PHONY: sd-ran-gui-docker
+sd-ran-gui-docker: # @HELP build onos-gui Docker image
+sd-ran-gui-docker: web/sd-ran-gui/dist/sd-ran-gui/index.html
 	docker build . -f build/sd-ran-gui/Dockerfile \
 		-t onosproject/sd-ran-gui:${RAN_SIMULATOR_VERSION}
 
-images: # @HELP build all Docker images
+PHONY: images
+images: # @HELP build Docker image
 images: sd-ran-gui-docker
 
 kind: # @HELP build Docker images and add them to the currently configured kind cluster
