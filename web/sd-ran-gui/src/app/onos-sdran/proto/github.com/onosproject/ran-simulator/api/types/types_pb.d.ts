@@ -70,26 +70,32 @@ export class Ue extends jspb.Message {
   getRoute(): string;
   setRoute(value: string): void;
 
-  getTower(): string;
-  setTower(value: string): void;
+  getServingTower(): string;
+  setServingTower(value: string): void;
+
+  getServingTowerDist(): number;
+  setServingTowerDist(value: number): void;
+
+  getTower1(): string;
+  setTower1(value: string): void;
+
+  getTower1Dist(): number;
+  setTower1Dist(value: number): void;
 
   getTower2(): string;
   setTower2(value: string): void;
 
+  getTower2Dist(): number;
+  setTower2Dist(value: number): void;
+
   getTower3(): string;
   setTower3(value: string): void;
 
+  getTower3Dist(): number;
+  setTower3Dist(value: number): void;
+
   getCrnti(): string;
   setCrnti(value: string): void;
-
-  getTowerdist(): number;
-  setTowerdist(value: number): void;
-
-  getTower2dist(): number;
-  setTower2dist(value: number): void;
-
-  getTower3dist(): number;
-  setTower3dist(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Ue.AsObject;
@@ -106,13 +112,15 @@ export namespace Ue {
     position?: Point.AsObject,
     rotation: number,
     route: string,
-    tower: string,
+    servingTower: string,
+    servingTowerDist: number,
+    tower1: string,
+    tower1Dist: number,
     tower2: string,
+    tower2Dist: number,
     tower3: string,
+    tower3Dist: number,
     crnti: string,
-    towerdist: number,
-    tower2dist: number,
-    tower3dist: number,
   }
 }
 

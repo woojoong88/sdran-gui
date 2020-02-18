@@ -248,7 +248,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private updateTower(tower: Tower): void {
-        console.log('Updated towerEntry', tower.getName(), this.powerSigned(tower.getTxpower()));
+        console.log('Updated tower power', tower.getName(), this.powerSigned(tower.getTxpower()), 'dB');
         this.powerCircleMap.get(tower.getName()).setRadius(this.powerToRadius(tower.getTxpower()));
         const previousIcon = this.towerMarkers.get(tower.getName()).getIcon();
         this.towerMarkers.get(tower.getName()).setIcon({
@@ -302,7 +302,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private initCar(car: Ue): void {
-        const servingTower = this.towerMarkers.get(car.getTower());
+        const servingTower = this.towerMarkers.get(car.getServingTower());
 
         const carMarker = new google.maps.Marker({
             icon: {
@@ -336,22 +336,29 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private updateCar(car: Ue, updateType: UpdateType): void {
         const newPos = new google.maps.LatLng(car.getPosition().getLat(), car.getPosition().getLng());
-        const servingTower = this.towerMarkers.get(car.getTower());
+        const servingTower = this.towerMarkers.get(car.getServingTower());
         if (this.carMap.get(car.getName()) !== undefined) {
             this.carMap.get(car.getName()).setPosition(newPos);
             this.carMap.get(car.getName()).setTitle(
-                'Serving: ' + car.getTower() + ', 2nd:' + car.getTower2() + ', 3rd: ' + car.getTower3());
+                'Serving: ' + car.getServingTower() + ', 1st:' + car.getTower1() +
+                ', 2nd:' + car.getTower2() + ', 3rd: ' + car.getTower3());
             this.carMap.get(car.getName()).get('icon').rotation = car.getRotation();
             const icon: google.maps.Symbol = this.carMap.get(car.getName()).get('icon');
             icon.rotation = 270 - car.getRotation();
             if (updateType === UpdateType.HANDOVER) {
                 icon.fillColor = (servingTower.getIcon() as google.maps.ReadonlySymbol).fillColor;
                 icon.scale = this.zoom * CAR_SCALING_FACTOR_HIGHLIGHT;
-                console.log('HANDOVER on', car.getName(), 'to', car.getTower());
+                console.log('HANDOVER on', car.getName(), 'to', car.getServingTower());
                 setTimeout(() => {
                     icon.scale = this.zoom * CAR_SCALING_FACTOR_DEFAULT;
                     this.carMap.get(car.getName()).setIcon(icon);
                 }, FLASH_FOR_MS);
+            } else if (updateType === UpdateType.TOWER) {
+                if (car.getServingTower() !== car.getTower1()) {
+                    console.warn('Car', car.getName(), 'Serving:', car.getServingTower(), '!== Closest:', car.getTower1());
+                }
+                // console.log(car.getName(), '- Serving:', car.getServingTower(), ', Closest:', car.getTower1(),
+                //     ', 2nd:', car.getTower2(), ', 3rd:', car.getTower3());
             }
             this.carMap.get(car.getName()).setIcon(icon);
             this.carMap.get(car.getName()).set('scale', this.zoom * Math.random());
