@@ -9,12 +9,13 @@ ONOS_BUILD_VERSION := stable
 web/sd-ran-gui/node_modules/@angular/cli/bin/ng: # @HELP Check if NPM install has been done
 	cd web/sd-ran-gui && npm install
 
-web/sd-ran-gui/dist/sd-ran-gui/index.html: # @HELP Check if "ng build" has been done
-web/sd-ran-gui/dist/sd-ran-gui/index.html: web/sd-ran-gui/node_modules/@angular/cli/bin/ng
+PHONY: web-sources
+web-sources: # @HELP Check if "ng build" has been done
+web-sources:
 	cd web/sd-ran-gui && ng build --prod
 
 test: # @HELP run the unit tests and source code validation
-test: web/sd-ran-gui/dist/sd-ran-gui/index.html license_check
+test: web-sources license_check
 
 license_check: # @HELP examine and ensure license headers exist
 	@if [ ! -d "../build-tools" ]; then cd .. && git clone https://github.com/onosproject/build-tools.git; fi
@@ -29,7 +30,7 @@ protos: # @HELP compile the protobuf files (using protoc-go Docker)
 
 PHONY: sd-ran-gui-docker
 sd-ran-gui-docker: # @HELP build onos-gui Docker image
-sd-ran-gui-docker: web/sd-ran-gui/dist/sd-ran-gui/index.html
+sd-ran-gui-docker: web-sources web/sd-ran-gui/node_modules/@angular/cli/bin/ng
 	docker build . -f build/sd-ran-gui/Dockerfile \
 		-t onosproject/sd-ran-gui:${RAN_SIMULATOR_VERSION}
 
@@ -43,7 +44,7 @@ kind: images
 	kind load docker-image onosproject/sd-ran-gui:${RAN_SIMULATOR_VERSION}
 
 all: # @HELP build everything
-all: build-gui images
+all: images
 
 clean: # @HELP remove all the build artifacts
 	rm -rf web/sd-ran-gui/dist web/sd-ran-gui/node_modules

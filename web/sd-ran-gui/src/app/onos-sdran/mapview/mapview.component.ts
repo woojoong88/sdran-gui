@@ -47,6 +47,7 @@ const LINE_SYMBOL = {
 };
 const CIRCLE_MIN_DIA = 200;
 const CIRCLE_DEFAULT_DIA = 500;
+const CIRCLE_MAX_DIA = 2000;
 const CAR_SCALING_FACTOR_DEFAULT = 0.025;
 const CAR_SCALING_FACTOR_HIGHLIGHT = 0.05;
 const TOWER_SCALING_FACTOR_DEFAULT = 0.25;
@@ -243,6 +244,8 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
         // console.log('Power calc:', powerUnsigneddB, this.powerSigned(powerUnsigneddB), power, distance);
         if (distance < CIRCLE_MIN_DIA) {
             return CIRCLE_MIN_DIA;
+        } else if (distance > CIRCLE_MAX_DIA) {
+            return CIRCLE_MAX_DIA;
         }
         return distance;
     }
