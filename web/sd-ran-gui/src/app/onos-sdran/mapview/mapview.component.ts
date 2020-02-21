@@ -194,8 +194,8 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
     openTowerInfo(towerMapMarker: MapMarker) {
         this.infoContent = [
             towerMapMarker.getTitle(),
-            ' Lat: ' + towerMapMarker.getPosition().lat(),
-            ' Lng: ' + towerMapMarker.getPosition().lng(),
+            ' Lat: ' + this.roundNumber(towerMapMarker.getPosition().lat(), '°', 5),
+            ' Lng: ' + this.roundNumber(towerMapMarker.getPosition().lng(), '°', 5),
             ];
         this.infoWindow.open(towerMapMarker);
     }
@@ -204,7 +204,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
         const pos = {lat: tower.getLocation().getLat(), lng: tower.getLocation().getLng()};
         const towerMarker = new google.maps.Marker();
         towerMarker.setPosition(pos);
-        towerMarker.setTitle(tower.getName() + ' ' + this.powerSigned(tower.getTxpower()).toString() + 'dB');
+        towerMarker.setTitle(tower.getName() + ' ' + this.roundNumber(tower.getTxpowerdb(), 'dB'));
         towerMarker.setOptions({
                 icon: {
                     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
@@ -220,7 +220,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
         const powerCircle = new google.maps.Circle({
             center: pos,
-            radius: this.powerToRadius(tower.getTxpower()),
+            radius: this.powerToRadius(tower.getTxpowerdb()),
             fillOpacity: 0,
             strokeColor: tower.getColor(),
             strokeWeight: 0.5,
@@ -231,15 +231,8 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
         this.powerCircleMap.set(tower.getName(), powerCircle);
     }
 
-    public powerSigned(powerUnsigneddB: number): number {
-        if (powerUnsigneddB >= Math.pow(2, 31)) {
-            return powerUnsigneddB - Math.pow(2, 32);
-        }
-        return powerUnsigneddB;
-    }
-
-    private powerToRadius(powerUnsigneddB: number): number {
-        const power = Math.pow(10, this.powerSigned(powerUnsigneddB) / 10);
+    private powerToRadius(powerdB: number): number {
+        const power = Math.pow(10, powerdB / 10);
         const distance = Math.sqrt(power) * CIRCLE_DEFAULT_DIA;
         // console.log('Power calc:', powerUnsigneddB, this.powerSigned(powerUnsigneddB), power, distance);
         if (distance < CIRCLE_MIN_DIA) {
@@ -250,9 +243,14 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
         return distance;
     }
 
+    private roundNumber(value: number, suffix: string = '', roundPlaces: number = 2): string {
+        const scale = Math.pow(10, roundPlaces);
+        return Math.round(value * scale) / scale + suffix;
+    }
+
     private updateTower(tower: Tower): void {
-        console.log('Updated tower power', tower.getName(), this.powerSigned(tower.getTxpower()), 'dB');
-        this.powerCircleMap.get(tower.getName()).setRadius(this.powerToRadius(tower.getTxpower()));
+        console.log('Updated tower power', tower.getName(), this.roundNumber(tower.getTxpowerdb(), 'dB'));
+        this.powerCircleMap.get(tower.getName()).setRadius(this.powerToRadius(tower.getTxpowerdb()));
         const previousIcon = this.towerMarkers.get(tower.getName()).getIcon();
         this.towerMarkers.get(tower.getName()).setIcon({
             path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
@@ -262,6 +260,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
             fillColor: tower.getColor(),
             fillOpacity: 1,
         });
+        this.towerMarkers.get(tower.getName()).setTitle(tower.getName() + ' ' + this.roundNumber(tower.getTxpowerdb(), 'dB'));
         setTimeout(() => {
                 this.towerMarkers.get(tower.getName()).setIcon(previousIcon);
             }, FLASH_FOR_MS);
@@ -295,7 +294,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private updateRoute(route: Route): void {
-        console.log('Updated route', route.getName());
+        console.log('Recalculate new route', route.getName());
         const path: google.maps.LatLng[] = [];
         route.getWaypointsList().forEach((point: Point) => {
             const latLng = new google.maps.LatLng(point.getLat(), point.getLng());
@@ -356,12 +355,6 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
                     icon.scale = this.zoom * CAR_SCALING_FACTOR_DEFAULT;
                     this.carMap.get(car.getName()).setIcon(icon);
                 }, FLASH_FOR_MS);
-            } else if (updateType === UpdateType.TOWER) {
-                if (car.getServingTower() !== car.getTower1()) {
-                    console.warn('Car', car.getName(), 'Serving:', car.getServingTower(), '!== Closest:', car.getTower1());
-                }
-                // console.log(car.getName(), '- Serving:', car.getServingTower(), ', Closest:', car.getTower1(),
-                //     ', 2nd:', car.getTower2(), ', 3rd:', car.getTower3());
             }
             this.carMap.get(car.getName()).setIcon(icon);
             this.carMap.get(car.getName()).set('scale', this.zoom * Math.random());

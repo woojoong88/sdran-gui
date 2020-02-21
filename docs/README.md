@@ -22,7 +22,7 @@ the **ENV** variable `GOOGLE_API_KEY` when the Docker is run.
 
 See [sd-ran-gui-deployment](sd-ran-gui-deployment.md) for how to perform a Kubernetes deployment.
 
-See [docker-compose.md](../../ran-simulator/docs/docker-compose.md) for a Docker Compose deployment.
+See [docker-compose.md](https://github.com/onosproject/ran-simulator/blob/master/docs/docker-compose.md) for a Docker Compose deployment.
 
 ## Browser access
 When deployed the simulation can be accessed

@@ -97,6 +97,9 @@ export class Ue extends jspb.Message {
   getCrnti(): string;
   setCrnti(value: string): void;
 
+  getAdmitted(): boolean;
+  setAdmitted(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Ue.AsObject;
   static toObject(includeInstance: boolean, msg: Ue): Ue.AsObject;
@@ -121,6 +124,7 @@ export namespace Ue {
     tower3: string,
     tower3Dist: number,
     crnti: string,
+    admitted: boolean,
   }
 }
 
@@ -184,8 +188,8 @@ export class Tower extends jspb.Message {
   clearNeighborsList(): void;
   addNeighbors(value: string, index?: number): void;
 
-  getTxpower(): number;
-  setTxpower(value: number): void;
+  getTxpowerdb(): number;
+  setTxpowerdb(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Tower.AsObject;
@@ -204,7 +208,7 @@ export namespace Tower {
     plmnid: string,
     maxues: number,
     neighborsList: Array<string>,
-    txpower: number,
+    txpowerdb: number,
   }
 }
 
