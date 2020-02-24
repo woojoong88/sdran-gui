@@ -21,7 +21,8 @@ export const environment = {
   production: false
 };
 
-export const trafficSimUrl = 'http://localhost:18080';
+export const ranSimulatorUrl = 'http://localhost:8080';
+export const onosRicUrl = 'http://localhost:8081';
 
 /*
  * For easier debugging in development mode, you can import the following file

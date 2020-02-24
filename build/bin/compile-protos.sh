@@ -2,19 +2,22 @@
 
 proto_imports=".:${GOPATH}/src/github.com/gogo/protobuf/protobuf:${GOPATH}/src/github.com/gogo/protobuf:${GOPATH}/src/github.com/google/protobuf/src:${GOPATH}/src:${GOPATH}/src/github.com/onosproject/ran-simulator/"
 
-rm -f api/trafficsim && mkdir -p api/trafficsim && rm -f api/types && mkdir -p api/types
+rm -rf api/trafficsim && mkdir -p api/trafficsim && rm -rf api/types && mkdir -p api/types && rm -rf api/nb && mkdir -p api/nb
 wget https://raw.githubusercontent.com/onosproject/ran-simulator/master/api/trafficsim/trafficsim.proto -P api/trafficsim
 wget https://raw.githubusercontent.com/onosproject/ran-simulator/master/api/types/types.proto -P api/types
+wget https://raw.githubusercontent.com/onosproject/onos-ran/master/api/nb/c1-interface.proto -P api/nb
 
 # Warning this required protoc v3.9.0 or greater
 protoc -I=$proto_imports --js_out=import_style=commonjs:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/types/types.proto
 protoc -I=$proto_imports --js_out=import_style=commonjs:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/trafficsim/trafficsim.proto
+protoc -I=$proto_imports --js_out=import_style=commonjs:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/nb/c1-interface.proto
 
 # Currently a bug in the below command outputs to "Github.com" (uppercase G)
 # The below uses grpcwebtext as Google implementation does not fully support server side streaming yet (Aug'19)
 # See https://grpc.io/blog/state-of-grpc-web/
 protoc -I=$proto_imports --grpc-web_out=import_style=typescript,mode=grpcwebtext:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/types/types.proto
 protoc -I=$proto_imports --grpc-web_out=import_style=typescript,mode=grpcwebtext:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/trafficsim/trafficsim.proto
+protoc -I=$proto_imports --grpc-web_out=import_style=typescript,mode=grpcwebtext:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/nb/c1-interface.proto
 
 cp -r github.com/onosproject/ran-simulator/* web/sd-ran-gui/src/app/onos-sdran/proto/github.com/onosproject/ran-simulator/
 rm -rf github.com

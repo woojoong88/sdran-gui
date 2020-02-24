@@ -15,31 +15,27 @@
  */
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MapviewComponent} from './mapview/mapview.component';
 import {RouterModule} from '@angular/router';
-import {GoogleMapsModule} from '@angular/google-maps';
 import {FormsModule} from '@angular/forms';
-import {OnosSdranTrafficsimService} from './proto/onos-sdran-trafficsim.service';
-import {ranSimulatorUrl} from '../../environments/environment';
+import {onosRicUrl} from '../../environments/environment';
+import {UelinksComponent} from './uelinks/uelinks.component';
+import {OnosGuiRicService} from './proto/onos-gui-ric.service';
+import {Gui2FwLibModule} from 'gui2-fw-lib';
 
 @NgModule({
-    declarations: [MapviewComponent],
+    declarations: [UelinksComponent],
     imports: [
         CommonModule,
-        GoogleMapsModule,
         FormsModule,
-        RouterModule.forChild([{path: '', component: MapviewComponent}]),
+        Gui2FwLibModule,
+        RouterModule.forChild([{path: '', component: UelinksComponent}]),
     ],
     providers: [
         {
-            provide: google.maps.DirectionsService,
-            useClass: google.maps.DirectionsService
-        },
-        {
-            provide: OnosSdranTrafficsimService,
-            useValue: new OnosSdranTrafficsimService(ranSimulatorUrl)
+            provide: OnosGuiRicService,
+            useValue: new OnosGuiRicService(onosRicUrl)
         }
     ]
 })
-export class OnosSdranModule {
+export class OnosRicModule {
 }

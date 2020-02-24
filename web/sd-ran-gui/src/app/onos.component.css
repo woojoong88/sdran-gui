@@ -13,3 +13,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+
+/*
+ ONOS GUI -- core (layout) -- CSS file
+ */
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    height: 100%;
+}
+
+/*
+   overflow hidden is to ensure that the body does not expand to account
+   for any flyout panes, that are positioned "off screen".
+ */
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+#view {
+    padding: 6px;
+    width: 100%;
+    height: 100%;
+}
+
+#view h2 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    margin: 32px 0 4px 16px;
+    padding: 0;
+    font-size: 18pt;
+    font-weight: lighter;
+}

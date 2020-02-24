@@ -27,6 +27,11 @@ const onosRoutes: Routes = [
         loadChildren: () => import('./onos-sdran/onos-sdran.module').then(m => m.OnosSdranModule)
     } as Route,
     {
+        path: `uelinks`,
+        pathMatch: 'full',
+        loadChildren: () => import('./onos-ric/onos-ric.module').then(m => m.OnosRicModule)
+    },
+    {
         path: '',
         redirectTo: 'mapview', // Default to Topology view
         pathMatch: 'full'

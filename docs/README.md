@@ -12,7 +12,6 @@ All application tuning is done through startup parameters on `ran-simulator`. Li
 `ran-simulator` it can be run:
  
 * as a standalone application in docker
-* as part of a **docker-compose** collection of applications
 * deployed in a **Kubernetes** cluster
 
 ## Google Maps API Key
@@ -21,8 +20,6 @@ The SD RAN GUI accesses Google Maps API and incurs a cost of $7.00 per
 the **ENV** variable `GOOGLE_API_KEY` when the Docker is run.
 
 See [sd-ran-gui-deployment](sd-ran-gui-deployment.md) for how to perform a Kubernetes deployment.
-
-See [docker-compose.md](https://github.com/onosproject/ran-simulator/blob/master/docs/docker-compose.md) for a Docker Compose deployment.
 
 ## Browser access
 When deployed the simulation can be accessed

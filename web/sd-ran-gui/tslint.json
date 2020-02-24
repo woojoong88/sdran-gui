@@ -95,7 +95,8 @@
     ],
     "linterOptions": {
         "exclude": [
-            "src/app/onos-sdran/proto/github.com/onosproject/ran-simulator/**/*"
+            "src/app/onos-sdran/proto/github.com/onosproject/ran-simulator/**/*",
+            "src/app/onos-ric/proto/github.com/onosproject/onos-ric/**/*"
         ]
     }
 }

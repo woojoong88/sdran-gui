@@ -22,8 +22,8 @@ license_check: # @HELP examine and ensure license headers exist
 	./../build-tools/licensing/boilerplate.py -v --rootdir=${CURDIR}
 
 protos: # @HELP compile the protobuf files (using protoc-go Docker)
-	cp ../ran-simulator/api/trafficsim/trafficsim.proto api/trafficsim
-	cp ../ran-simulator/api/types/types.proto api/types
+# 	cp ../ran-simulator/api/trafficsim/trafficsim.proto api/trafficsim
+# 	cp ../ran-simulator/api/types/types.proto api/types
 	docker run -it -v `pwd`:/go/src/github.com/onosproject/ran-simulator \
 		-v `pwd`/../build-tools/licensing:/build-tools/licensing \
 		-w /go/src/github.com/onosproject/ran-simulator \

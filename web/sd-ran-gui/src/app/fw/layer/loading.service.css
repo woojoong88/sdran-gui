@@ -1,5 +1,5 @@
 /*
- * Copyright 2020-present Open Networking Foundation
+ * Copyright 2019-present Open Networking Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,9 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export const environment = {
-  production: true
-};
 
-export const ranSimulatorUrl = 'http://' + window.location.host + '/ran-simulator';
-export const onosRicUrl = 'http://' + window.location.host + '/onos-ran';
+/*
+ ONOS GUI -- Loading Service -- CSS file
+ */
+
+#loading-anim {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

@@ -29,10 +29,10 @@ export class OnosSdranTrafficsimService {
 
     trafficClient: TrafficClient;
 
-    constructor(@Inject('trafficSimUrl') private trafficSimUrl: string) {
-        this.trafficClient = new TrafficClient(trafficSimUrl);
+    constructor(@Inject('ranSimulatorUrl') private ranSimulatorUrl: string) {
+        this.trafficClient = new TrafficClient(ranSimulatorUrl);
 
-        console.log('TrafficSim grpc-web Url ', trafficSimUrl);
+        console.log('ran-simulator grpc-web Url ', ranSimulatorUrl);
     }
 
     requestGetMapLayout(): Observable<MapLayout> {

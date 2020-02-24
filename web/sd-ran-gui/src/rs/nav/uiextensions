@@ -6,9 +6,9 @@
         "label": "MapView"
     },
     {
-        "id": "config/models",
+        "id": "uelinks",
         "icon": "nav_models",
-        "cat": "CONFIG",
-        "label": "Models"
+        "cat": "NETWORK",
+        "label": "UE Links"
     }
 ]

@@ -13,9 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export const environment = {
-  production: true
-};
 
-export const ranSimulatorUrl = 'http://' + window.location.host + '/ran-simulator';
-export const onosRicUrl = 'http://' + window.location.host + '/onos-ran';
+import {TestBed} from '@angular/core/testing';
+
+import {OnosGuiRicService} from './onos-gui-ric.service';
+
+describe('OnosGuiRicService', () => {
+    let service: OnosGuiRicService;
+
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+        service = TestBed.inject(OnosGuiRicService);
+    });
+
+    it('should be created', () => {
+        expect(service).toBeTruthy();
+    });
+});
