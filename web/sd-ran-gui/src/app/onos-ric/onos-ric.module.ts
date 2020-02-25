@@ -21,9 +21,10 @@ import {onosRicUrl} from '../../environments/environment';
 import {UelinksComponent} from './uelinks/uelinks.component';
 import {OnosGuiRicService} from './proto/onos-gui-ric.service';
 import {Gui2FwLibModule} from 'gui2-fw-lib';
+import { CellDetailsComponent } from './celldetails/celldetails.component';
 
 @NgModule({
-    declarations: [UelinksComponent],
+    declarations: [UelinksComponent, CellDetailsComponent],
     imports: [
         CommonModule,
         FormsModule,

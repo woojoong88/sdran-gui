@@ -15,7 +15,7 @@
 -->
 <div id="ov-uelist">
     <div class="tabular-header">
-        <h2>CQI for UE-Cell links. UEs: {{ ueLinks.size }}. Cells: {{ecids.length}}.</h2>
+        <h2>CQI for UE-Cell links. UEs: {{ ueLinks.size }}. Cells: {{stations.size}}.</h2>
         <div class="ctrl-btns">
             <div class="separator"></div>
         </div>
@@ -24,8 +24,8 @@
         <div class="table-header">
             <table>
                 <tr>
-                    <td>UEs/Cells</td>
-                    <td *ngFor="let ecid of ecids">{{ecid}}</td>
+                    <td class="not-clickable">Cells/<br>UEs</td>
+                    <td class="clickable" *ngFor="let ecid of stations | keyvalue" (click)="selectedCell = ecid.key; selectedStation = ecid.value">{{ecid.key}}</td>
                 </tr>
             </table>
         </div>
@@ -37,12 +37,13 @@
                     <td colspan="9">No data found</td>
                 </tr>
                 <tr class="table-body" *ngFor="let uelink of ueLinks | keyvalue">
-                    <td>{{uelink.key}}</td>
-                    <td id="cqi" *ngFor="let ecid1 of ecids" [ngClass]="ueHighlights.includes(uelink.key) ? 'highlight' : ''">
-                        {{getQualForEcid(uelink.key, ecid1)}}
+                    <td class="not-clickable">{{uelink.key}}</td>
+                    <td id="cqi" class="not-clickable" *ngFor="let ecid1 of stations | keyvalue" [ngClass]="ueHighlights.includes(uelink.key) ? 'highlight' : ''">
+                        {{getQualForEcid(uelink.key, ecid1.key)}}
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+    <onos-celldetails [cellId]="selectedCell" [station]="selectedStation" (selectedEvent)="selectStation($event)"></onos-celldetails>
 </div>

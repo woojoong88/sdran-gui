@@ -16,7 +16,7 @@
 
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {
-    ChannelQuality,
+    ChannelQuality, ECGI, StationInfo,
     UELinkInfo
 } from '../proto/github.com/onosproject/onos-ric/api/nb/c1-interface_pb';
 import {OnosGuiRicService} from '../proto/onos-gui-ric.service';
@@ -38,26 +38,46 @@ const HighlighFadeMs = 500;
 })
 export class UelinksComponent implements OnInit, OnDestroy {
     ueLinks: Map<string, UELinkInfo>;
+    stations: Map<string, StationInfo>;
     ueHighlights: Array<string>;
-    ecids: Array<string>;
     uelinksSub: Subscription;
     timer: any;
+    selectedCell = '';
+    selectedStation: StationInfo;
 
     constructor(
         private onosGuiRicService: OnosGuiRicService,
         private connectivityService: ConnectivityService
     ) {
         this.ueLinks = new Map<string, UELinkInfo>();
-        this.ecids = new Array<string>();
+        this.stations = new Map<string, StationInfo>();
         this.ueHighlights = new Array<string>();
         console.log('Constructed UelinksComponent');
     }
 
     ngOnInit() {
         this.getUeLinks();
+        this.getStations();
         this.timer = setInterval(() => {
             this.getUeLinks();
+            this.getStations();
         }, RefreshIntervalMs);
+    }
+
+    getStations() {
+        console.log('Connecting to onos-ric getStations()');
+        this.uelinksSub = this.onosGuiRicService.requestListStations().subscribe(
+            (stationInfo: StationInfo) => {
+                this.stations.set(stationInfo.getEcgi().getEcid(), stationInfo);
+            },
+            (err => {
+                this.connectivityService.showVeil([
+                    'Stations gRPC error', String(err.code), err.message,
+                    'Please ensure onos-ric is reachable']);
+                console.error('Disconnected from onos-ric', err);
+                clearTimeout(this.timer);
+            })
+        );
     }
 
     // For the moment we have to poll this, since subscribe is not yet implemented
@@ -87,16 +107,6 @@ export class UelinksComponent implements OnInit, OnDestroy {
                         }, HighlighFadeMs);
                     }
                 }
-                // Get all of the Ecid's mentioned in the qualities and build up Ecid list
-                uelink.getChannelqualitiesList()
-                    .filter((cq: ChannelQuality) => !this.ecids.includes(cq.getTargetecgi().getEcid()))
-                    .forEach((cq1: ChannelQuality) => {
-                        const ecid = cq1.getTargetecgi().getEcid();
-                        this.ecids.push(ecid);
-                        this.ecids.sort((a, b): number => {
-                            return a < b ? -1 : (a > b ? 1 : 0);
-                        });
-                    });
             },
             (err: grpcWeb.Error) => {
                 this.connectivityService.showVeil([
@@ -120,6 +130,11 @@ export class UelinksComponent implements OnInit, OnDestroy {
             return chanQuality.getCqihist();
         }
         return undefined;
+    }
+
+    selectStation(ecgi: ECGI) {
+        this.selectedCell = ecgi.getEcid();
+        this.selectedStation = this.stations.get(ecgi.getEcid());
     }
 
 }

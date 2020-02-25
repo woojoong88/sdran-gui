@@ -54,3 +54,11 @@
     color: #e36457;
     font-weight: bold;
 }
+
+td.clickable {
+    text-decoration: underline;
+}
+
+div.summary-list .table-body td.not-clickable {
+    cursor: text;
+}

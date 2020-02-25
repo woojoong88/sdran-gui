@@ -18,6 +18,7 @@ import {Inject, Injectable} from '@angular/core';
 import {C1InterfaceServiceClient} from './github.com/onosproject/onos-ric/api/nb/C1-interfaceServiceClientPb';
 import {Observable, Subscriber} from 'rxjs';
 import {
+    ECGI,
     StationInfo, StationLinkInfo, StationLinkListRequest, StationListRequest,
     UELinkInfo,
     UELinkListRequest
@@ -71,8 +72,9 @@ export class OnosGuiRicService {
         return listStationsObs;
     }
 
-    requestListStationLinks(): Observable<StationLinkInfo> {
+    requestListStationLinks(ecgi: ECGI): Observable<StationLinkInfo> {
         const req = new StationLinkListRequest();
+        // req.setEcgi(ecgi); Not implemented in onos-ran
         const stream = this.c1InterfaceClient.listStationLinks(req, {});
         const listStationLinksObs = new Observable<StationLinkInfo>((observer: Subscriber<StationLinkInfo>) => {
             stream.on('data', (stationLinkInfo: StationLinkInfo) => {
