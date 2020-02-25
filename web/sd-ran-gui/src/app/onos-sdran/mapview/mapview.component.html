@@ -19,6 +19,12 @@
 <input type="checkbox" [(ngModel)]="showMap" (ngModelChange)="updateMap($event)">
 <label><small>Power</small></label>
 <input type="checkbox" [(ngModel)]="showPower" (ngModelChange)="updatePower($event)">
+
+<label>  Number of UEs:  </label>
+<span *ngFor="let opt of numRoutesOptions">
+    <label><small> {{opt}}</small></label>
+    <input type="radio" [id]="opt" name="'numues'" [value]="opt" [checked]="opt === numRoutes" [title]="opt" (click)="changeNumUes(opt)">
+</span>
 <!-- See https://medium.com/angular-in-depth/google-maps-is-now-an-angular-component-821ec61d2a0 -->
 <google-map #map height="85vh" width="100%"
             [center]="center"

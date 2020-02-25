@@ -899,9 +899,12 @@ proto.interface.c1.ECGI.prototype.getPlmnid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.ECGI} returns this
+ */
 proto.interface.c1.ECGI.prototype.setPlmnid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -914,9 +917,12 @@ proto.interface.c1.ECGI.prototype.getEcid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.ECGI} returns this
+ */
 proto.interface.c1.ECGI.prototype.setEcid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1056,17 +1062,21 @@ proto.interface.c1.StationListRequest.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.StationListRequest} returns this
+*/
 proto.interface.c1.StationListRequest.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.StationListRequest} returns this
  */
 proto.interface.c1.StationListRequest.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -1088,9 +1098,12 @@ proto.interface.c1.StationListRequest.prototype.getSubscribe = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.interface.c1.StationListRequest} returns this
+ */
 proto.interface.c1.StationListRequest.prototype.setSubscribe = function(value) {
-  jspb.Message.setProto3BooleanField(this, 2, value);
+  return jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
@@ -1230,17 +1243,21 @@ proto.interface.c1.StationInfo.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.StationInfo} returns this
+*/
 proto.interface.c1.StationInfo.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.StationInfo} returns this
  */
 proto.interface.c1.StationInfo.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -1262,9 +1279,12 @@ proto.interface.c1.StationInfo.prototype.getMaxnumconnectedues = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.interface.c1.StationInfo} returns this
+ */
 proto.interface.c1.StationInfo.prototype.setMaxnumconnectedues = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1404,17 +1424,21 @@ proto.interface.c1.StationLinkListRequest.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.StationLinkListRequest} returns this
+*/
 proto.interface.c1.StationLinkListRequest.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.StationLinkListRequest} returns this
  */
 proto.interface.c1.StationLinkListRequest.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -1436,9 +1460,12 @@ proto.interface.c1.StationLinkListRequest.prototype.getSubscribe = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.interface.c1.StationLinkListRequest} returns this
+ */
 proto.interface.c1.StationLinkListRequest.prototype.setSubscribe = function(value) {
-  jspb.Message.setProto3BooleanField(this, 2, value);
+  return jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
@@ -1588,17 +1615,21 @@ proto.interface.c1.StationLinkInfo.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.StationLinkInfo} returns this
+*/
 proto.interface.c1.StationLinkInfo.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.StationLinkInfo} returns this
  */
 proto.interface.c1.StationLinkInfo.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -1621,9 +1652,12 @@ proto.interface.c1.StationLinkInfo.prototype.getNeighborecgiList = function() {
 };
 
 
-/** @param {!Array<!proto.interface.c1.ECGI>} value */
+/**
+ * @param {!Array<!proto.interface.c1.ECGI>} value
+ * @return {!proto.interface.c1.StationLinkInfo} returns this
+*/
 proto.interface.c1.StationLinkInfo.prototype.setNeighborecgiList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -1639,9 +1673,10 @@ proto.interface.c1.StationLinkInfo.prototype.addNeighborecgi = function(opt_valu
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.StationLinkInfo} returns this
  */
 proto.interface.c1.StationLinkInfo.prototype.clearNeighborecgiList = function() {
-  this.setNeighborecgiList([]);
+  return this.setNeighborecgiList([]);
 };
 
 
@@ -1792,9 +1827,12 @@ proto.interface.c1.UELinkListRequest.prototype.getCrnti = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.UELinkListRequest} returns this
+ */
 proto.interface.c1.UELinkListRequest.prototype.setCrnti = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1808,17 +1846,21 @@ proto.interface.c1.UELinkListRequest.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.UELinkListRequest} returns this
+*/
 proto.interface.c1.UELinkListRequest.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.UELinkListRequest} returns this
  */
 proto.interface.c1.UELinkListRequest.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -1840,9 +1882,12 @@ proto.interface.c1.UELinkListRequest.prototype.getSubscribe = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.interface.c1.UELinkListRequest} returns this
+ */
 proto.interface.c1.UELinkListRequest.prototype.setSubscribe = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
@@ -1982,17 +2027,21 @@ proto.interface.c1.ChannelQuality.prototype.getTargetecgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.ChannelQuality} returns this
+*/
 proto.interface.c1.ChannelQuality.prototype.setTargetecgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.ChannelQuality} returns this
  */
 proto.interface.c1.ChannelQuality.prototype.clearTargetecgi = function() {
-  this.setTargetecgi(undefined);
+  return this.setTargetecgi(undefined);
 };
 
 
@@ -2014,9 +2063,12 @@ proto.interface.c1.ChannelQuality.prototype.getCqihist = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.interface.c1.ChannelQuality} returns this
+ */
 proto.interface.c1.ChannelQuality.prototype.setCqihist = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2189,9 +2241,12 @@ proto.interface.c1.UELinkInfo.prototype.getCrnti = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.UELinkInfo} returns this
+ */
 proto.interface.c1.UELinkInfo.prototype.setCrnti = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2205,17 +2260,21 @@ proto.interface.c1.UELinkInfo.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.UELinkInfo} returns this
+*/
 proto.interface.c1.UELinkInfo.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.UELinkInfo} returns this
  */
 proto.interface.c1.UELinkInfo.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -2238,9 +2297,12 @@ proto.interface.c1.UELinkInfo.prototype.getChannelqualitiesList = function() {
 };
 
 
-/** @param {!Array<!proto.interface.c1.ChannelQuality>} value */
+/**
+ * @param {!Array<!proto.interface.c1.ChannelQuality>} value
+ * @return {!proto.interface.c1.UELinkInfo} returns this
+*/
 proto.interface.c1.UELinkInfo.prototype.setChannelqualitiesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 3, value);
+  return jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
@@ -2256,9 +2318,10 @@ proto.interface.c1.UELinkInfo.prototype.addChannelqualities = function(opt_value
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.UELinkInfo} returns this
  */
 proto.interface.c1.UELinkInfo.prototype.clearChannelqualitiesList = function() {
-  this.setChannelqualitiesList([]);
+  return this.setChannelqualitiesList([]);
 };
 
 
@@ -2271,9 +2334,12 @@ proto.interface.c1.UELinkInfo.prototype.getImsi = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.UELinkInfo} returns this
+ */
 proto.interface.c1.UELinkInfo.prototype.setImsi = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2426,9 +2492,12 @@ proto.interface.c1.HandOverRequest.prototype.getCrnti = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.HandOverRequest} returns this
+ */
 proto.interface.c1.HandOverRequest.prototype.setCrnti = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2442,17 +2511,21 @@ proto.interface.c1.HandOverRequest.prototype.getSrcstation = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.HandOverRequest} returns this
+*/
 proto.interface.c1.HandOverRequest.prototype.setSrcstation = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.HandOverRequest} returns this
  */
 proto.interface.c1.HandOverRequest.prototype.clearSrcstation = function() {
-  this.setSrcstation(undefined);
+  return this.setSrcstation(undefined);
 };
 
 
@@ -2475,17 +2548,21 @@ proto.interface.c1.HandOverRequest.prototype.getDststation = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.HandOverRequest} returns this
+*/
 proto.interface.c1.HandOverRequest.prototype.setDststation = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.HandOverRequest} returns this
  */
 proto.interface.c1.HandOverRequest.prototype.clearDststation = function() {
-  this.setDststation(undefined);
+  return this.setDststation(undefined);
 };
 
 
@@ -2619,9 +2696,12 @@ proto.interface.c1.HandOverResponse.prototype.getSuccess = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.interface.c1.HandOverResponse} returns this
+ */
 proto.interface.c1.HandOverResponse.prototype.setSuccess = function(value) {
-  jspb.Message.setProto3BooleanField(this, 1, value);
+  return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
@@ -2761,17 +2841,21 @@ proto.interface.c1.RadioPowerRequest.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.ECGI|undefined} value
+ * @return {!proto.interface.c1.RadioPowerRequest} returns this
+*/
 proto.interface.c1.RadioPowerRequest.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.RadioPowerRequest} returns this
  */
 proto.interface.c1.RadioPowerRequest.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -2793,9 +2877,12 @@ proto.interface.c1.RadioPowerRequest.prototype.getOffset = function() {
 };
 
 
-/** @param {!proto.interface.c1.StationPowerOffset} value */
+/**
+ * @param {!proto.interface.c1.StationPowerOffset} value
+ * @return {!proto.interface.c1.RadioPowerRequest} returns this
+ */
 proto.interface.c1.RadioPowerRequest.prototype.setOffset = function(value) {
-  jspb.Message.setProto3EnumField(this, 2, value);
+  return jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 
@@ -2920,9 +3007,12 @@ proto.interface.c1.RadioPowerResponse.prototype.getSuccess = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.interface.c1.RadioPowerResponse} returns this
+ */
 proto.interface.c1.RadioPowerResponse.prototype.setSuccess = function(value) {
-  jspb.Message.setProto3BooleanField(this, 1, value);
+  return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
@@ -3064,17 +3154,21 @@ proto.interface.c1.C1RequestMessage.prototype.getHeader = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RequestMessageHeader|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RequestMessageHeader|undefined} value
+ * @return {!proto.interface.c1.C1RequestMessage} returns this
+*/
 proto.interface.c1.C1RequestMessage.prototype.setHeader = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RequestMessage} returns this
  */
 proto.interface.c1.C1RequestMessage.prototype.clearHeader = function() {
-  this.setHeader(undefined);
+  return this.setHeader(undefined);
 };
 
 
@@ -3097,17 +3191,21 @@ proto.interface.c1.C1RequestMessage.prototype.getPayload = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RequestMessagePayload|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RequestMessagePayload|undefined} value
+ * @return {!proto.interface.c1.C1RequestMessage} returns this
+*/
 proto.interface.c1.C1RequestMessage.prototype.setPayload = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RequestMessage} returns this
  */
 proto.interface.c1.C1RequestMessage.prototype.clearPayload = function() {
-  this.setPayload(undefined);
+  return this.setPayload(undefined);
 };
 
 
@@ -3258,17 +3356,21 @@ proto.interface.c1.C1ResponseMessage.prototype.getHeader = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1ResponseMessageHeader|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1ResponseMessageHeader|undefined} value
+ * @return {!proto.interface.c1.C1ResponseMessage} returns this
+*/
 proto.interface.c1.C1ResponseMessage.prototype.setHeader = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1ResponseMessage} returns this
  */
 proto.interface.c1.C1ResponseMessage.prototype.clearHeader = function() {
-  this.setHeader(undefined);
+  return this.setHeader(undefined);
 };
 
 
@@ -3291,17 +3393,21 @@ proto.interface.c1.C1ResponseMessage.prototype.getPayload = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1ResponseMessagePayload|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1ResponseMessagePayload|undefined} value
+ * @return {!proto.interface.c1.C1ResponseMessage} returns this
+*/
 proto.interface.c1.C1ResponseMessage.prototype.setPayload = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1ResponseMessage} returns this
  */
 proto.interface.c1.C1ResponseMessage.prototype.clearPayload = function() {
-  this.setPayload(undefined);
+  return this.setPayload(undefined);
 };
 
 
@@ -3435,9 +3541,12 @@ proto.interface.c1.C1RequestMessageHeader.prototype.getType = function() {
 };
 
 
-/** @param {!proto.interface.c1.C1MessageType} value */
+/**
+ * @param {!proto.interface.c1.C1MessageType} value
+ * @return {!proto.interface.c1.C1RequestMessageHeader} returns this
+ */
 proto.interface.c1.C1RequestMessageHeader.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  return jspb.Message.setProto3EnumField(this, 1, value);
 };
 
 
@@ -3617,17 +3726,21 @@ proto.interface.c1.C1RequestMessagePayload.prototype.getRequestedrnibtype = func
 };
 
 
-/** @param {!proto.interface.c1.C1RNIBType} value */
+/**
+ * @param {!proto.interface.c1.C1RNIBType} value
+ * @return {!proto.interface.c1.C1RequestMessagePayload} returns this
+ */
 proto.interface.c1.C1RequestMessagePayload.prototype.setRequestedrnibtype = function(value) {
-  jspb.Message.setOneofField(this, 1, proto.interface.c1.C1RequestMessagePayload.oneofGroups_[0], value);
+  return jspb.Message.setOneofField(this, 1, proto.interface.c1.C1RequestMessagePayload.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the field making it undefined.
+ * @return {!proto.interface.c1.C1RequestMessagePayload} returns this
  */
 proto.interface.c1.C1RequestMessagePayload.prototype.clearRequestedrnibtype = function() {
-  jspb.Message.setOneofField(this, 1, proto.interface.c1.C1RequestMessagePayload.oneofGroups_[0], undefined);
+  return jspb.Message.setOneofField(this, 1, proto.interface.c1.C1RequestMessagePayload.oneofGroups_[0], undefined);
 };
 
 
@@ -3650,17 +3763,21 @@ proto.interface.c1.C1RequestMessagePayload.prototype.getHandoverrequest = functi
 };
 
 
-/** @param {?proto.interface.c1.C1HandoverRequest|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1HandoverRequest|undefined} value
+ * @return {!proto.interface.c1.C1RequestMessagePayload} returns this
+*/
 proto.interface.c1.C1RequestMessagePayload.prototype.setHandoverrequest = function(value) {
-  jspb.Message.setOneofWrapperField(this, 2, proto.interface.c1.C1RequestMessagePayload.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 2, proto.interface.c1.C1RequestMessagePayload.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RequestMessagePayload} returns this
  */
 proto.interface.c1.C1RequestMessagePayload.prototype.clearHandoverrequest = function() {
-  this.setHandoverrequest(undefined);
+  return this.setHandoverrequest(undefined);
 };
 
 
@@ -3683,17 +3800,21 @@ proto.interface.c1.C1RequestMessagePayload.prototype.getRrmconfigurationrequest 
 };
 
 
-/** @param {?proto.interface.c1.C1RRMConfiguration|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RRMConfiguration|undefined} value
+ * @return {!proto.interface.c1.C1RequestMessagePayload} returns this
+*/
 proto.interface.c1.C1RequestMessagePayload.prototype.setRrmconfigurationrequest = function(value) {
-  jspb.Message.setOneofWrapperField(this, 3, proto.interface.c1.C1RequestMessagePayload.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 3, proto.interface.c1.C1RequestMessagePayload.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RequestMessagePayload} returns this
  */
 proto.interface.c1.C1RequestMessagePayload.prototype.clearRrmconfigurationrequest = function() {
-  this.setRrmconfigurationrequest(undefined);
+  return this.setRrmconfigurationrequest(undefined);
 };
 
 
@@ -3827,9 +3948,12 @@ proto.interface.c1.C1ResponseMessageHeader.prototype.getType = function() {
 };
 
 
-/** @param {!proto.interface.c1.C1MessageType} value */
+/**
+ * @param {!proto.interface.c1.C1MessageType} value
+ * @return {!proto.interface.c1.C1ResponseMessageHeader} returns this
+ */
 proto.interface.c1.C1ResponseMessageHeader.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  return jspb.Message.setProto3EnumField(this, 1, value);
 };
 
 
@@ -4024,17 +4148,21 @@ proto.interface.c1.C1ResponseMessagePayload.prototype.getResponsecode = function
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1ResponseMessagePayload} returns this
+ */
 proto.interface.c1.C1ResponseMessagePayload.prototype.setResponsecode = function(value) {
-  jspb.Message.setOneofField(this, 1, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], value);
+  return jspb.Message.setOneofField(this, 1, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the field making it undefined.
+ * @return {!proto.interface.c1.C1ResponseMessagePayload} returns this
  */
 proto.interface.c1.C1ResponseMessagePayload.prototype.clearResponsecode = function() {
-  jspb.Message.setOneofField(this, 1, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], undefined);
+  return jspb.Message.setOneofField(this, 1, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], undefined);
 };
 
 
@@ -4057,17 +4185,21 @@ proto.interface.c1.C1ResponseMessagePayload.prototype.getRnibcells = function() 
 };
 
 
-/** @param {?proto.interface.c1.C1RNIBCells|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RNIBCells|undefined} value
+ * @return {!proto.interface.c1.C1ResponseMessagePayload} returns this
+*/
 proto.interface.c1.C1ResponseMessagePayload.prototype.setRnibcells = function(value) {
-  jspb.Message.setOneofWrapperField(this, 2, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 2, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1ResponseMessagePayload} returns this
  */
 proto.interface.c1.C1ResponseMessagePayload.prototype.clearRnibcells = function() {
-  this.setRnibcells(undefined);
+  return this.setRnibcells(undefined);
 };
 
 
@@ -4090,17 +4222,21 @@ proto.interface.c1.C1ResponseMessagePayload.prototype.getRnibues = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RNIBUEs|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RNIBUEs|undefined} value
+ * @return {!proto.interface.c1.C1ResponseMessagePayload} returns this
+*/
 proto.interface.c1.C1ResponseMessagePayload.prototype.setRnibues = function(value) {
-  jspb.Message.setOneofWrapperField(this, 3, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 3, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1ResponseMessagePayload} returns this
  */
 proto.interface.c1.C1ResponseMessagePayload.prototype.clearRnibues = function() {
-  this.setRnibues(undefined);
+  return this.setRnibues(undefined);
 };
 
 
@@ -4123,17 +4259,21 @@ proto.interface.c1.C1ResponseMessagePayload.prototype.getRniblinks = function() 
 };
 
 
-/** @param {?proto.interface.c1.C1RNIBLinks|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RNIBLinks|undefined} value
+ * @return {!proto.interface.c1.C1ResponseMessagePayload} returns this
+*/
 proto.interface.c1.C1ResponseMessagePayload.prototype.setRniblinks = function(value) {
-  jspb.Message.setOneofWrapperField(this, 4, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 4, proto.interface.c1.C1ResponseMessagePayload.oneofGroups_[0], value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1ResponseMessagePayload} returns this
  */
 proto.interface.c1.C1ResponseMessagePayload.prototype.clearRniblinks = function() {
-  this.setRniblinks(undefined);
+  return this.setRniblinks(undefined);
 };
 
 
@@ -4278,9 +4418,12 @@ proto.interface.c1.C1RNIBCells.prototype.getRnibcellsList = function() {
 };
 
 
-/** @param {!Array<!proto.interface.c1.C1RNIBCell>} value */
+/**
+ * @param {!Array<!proto.interface.c1.C1RNIBCell>} value
+ * @return {!proto.interface.c1.C1RNIBCells} returns this
+*/
 proto.interface.c1.C1RNIBCells.prototype.setRnibcellsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -4296,9 +4439,10 @@ proto.interface.c1.C1RNIBCells.prototype.addRnibcells = function(opt_value, opt_
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RNIBCells} returns this
  */
 proto.interface.c1.C1RNIBCells.prototype.clearRnibcellsList = function() {
-  this.setRnibcellsList([]);
+  return this.setRnibcellsList([]);
 };
 
 
@@ -4434,9 +4578,12 @@ proto.interface.c1.C1RNIBUEs.prototype.getRnibuesList = function() {
 };
 
 
-/** @param {!Array<!proto.interface.c1.C1RNIBUE>} value */
+/**
+ * @param {!Array<!proto.interface.c1.C1RNIBUE>} value
+ * @return {!proto.interface.c1.C1RNIBUEs} returns this
+*/
 proto.interface.c1.C1RNIBUEs.prototype.setRnibuesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -4452,9 +4599,10 @@ proto.interface.c1.C1RNIBUEs.prototype.addRnibues = function(opt_value, opt_inde
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RNIBUEs} returns this
  */
 proto.interface.c1.C1RNIBUEs.prototype.clearRnibuesList = function() {
-  this.setRnibuesList([]);
+  return this.setRnibuesList([]);
 };
 
 
@@ -4590,9 +4738,12 @@ proto.interface.c1.C1RNIBLinks.prototype.getRniblinksList = function() {
 };
 
 
-/** @param {!Array<!proto.interface.c1.C1RNIBLink>} value */
+/**
+ * @param {!Array<!proto.interface.c1.C1RNIBLink>} value
+ * @return {!proto.interface.c1.C1RNIBLinks} returns this
+*/
 proto.interface.c1.C1RNIBLinks.prototype.setRniblinksList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -4608,9 +4759,10 @@ proto.interface.c1.C1RNIBLinks.prototype.addRniblinks = function(opt_value, opt_
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RNIBLinks} returns this
  */
 proto.interface.c1.C1RNIBLinks.prototype.clearRniblinksList = function() {
-  this.setRniblinksList([]);
+  return this.setRniblinksList([]);
 };
 
 
@@ -4747,9 +4899,12 @@ proto.interface.c1.C1ECGI.prototype.getPlmnid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1ECGI} returns this
+ */
 proto.interface.c1.C1ECGI.prototype.setPlmnid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4762,9 +4917,12 @@ proto.interface.c1.C1ECGI.prototype.getEcid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1ECGI} returns this
+ */
 proto.interface.c1.C1ECGI.prototype.setEcid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4901,9 +5059,12 @@ proto.interface.c1.C1CandScell.prototype.getPci = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CandScell} returns this
+ */
 proto.interface.c1.C1CandScell.prototype.setPci = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4916,9 +5077,12 @@ proto.interface.c1.C1CandScell.prototype.getEarfcndl = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CandScell} returns this
+ */
 proto.interface.c1.C1CandScell.prototype.setEarfcndl = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -5074,17 +5238,21 @@ proto.interface.c1.C1RNIBCell.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1ECGI|undefined} value
+ * @return {!proto.interface.c1.C1RNIBCell} returns this
+*/
 proto.interface.c1.C1RNIBCell.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RNIBCell} returns this
  */
 proto.interface.c1.C1RNIBCell.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -5107,17 +5275,21 @@ proto.interface.c1.C1RNIBCell.prototype.getCellconfiguration = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1CellConfigAttribute|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1CellConfigAttribute|undefined} value
+ * @return {!proto.interface.c1.C1RNIBCell} returns this
+*/
 proto.interface.c1.C1RNIBCell.prototype.setCellconfiguration = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RNIBCell} returns this
  */
 proto.interface.c1.C1RNIBCell.prototype.clearCellconfiguration = function() {
-  this.setCellconfiguration(undefined);
+  return this.setCellconfiguration(undefined);
 };
 
 
@@ -5140,17 +5312,21 @@ proto.interface.c1.C1RNIBCell.prototype.getRrmconfiguration = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RRMConfigAttribute|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RRMConfigAttribute|undefined} value
+ * @return {!proto.interface.c1.C1RNIBCell} returns this
+*/
 proto.interface.c1.C1RNIBCell.prototype.setRrmconfiguration = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RNIBCell} returns this
  */
 proto.interface.c1.C1RNIBCell.prototype.clearRrmconfiguration = function() {
-  this.setRrmconfiguration(undefined);
+  return this.setRrmconfiguration(undefined);
 };
 
 
@@ -5453,17 +5629,21 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1ECGI|undefined} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+*/
 proto.interface.c1.C1CellConfigAttribute.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
  */
 proto.interface.c1.C1CellConfigAttribute.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -5485,9 +5665,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getPci = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setPci = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -5501,9 +5684,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getCandscellsList = function(
 };
 
 
-/** @param {!Array<!proto.interface.c1.C1CandScell>} value */
+/**
+ * @param {!Array<!proto.interface.c1.C1CandScell>} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+*/
 proto.interface.c1.C1CellConfigAttribute.prototype.setCandscellsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 3, value);
+  return jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
@@ -5519,9 +5705,10 @@ proto.interface.c1.C1CellConfigAttribute.prototype.addCandscells = function(opt_
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
  */
 proto.interface.c1.C1CellConfigAttribute.prototype.clearCandscellsList = function() {
-  this.setCandscellsList([]);
+  return this.setCandscellsList([]);
 };
 
 
@@ -5534,9 +5721,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getEarfcndl = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setEarfcndl = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -5549,9 +5739,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getEarfcnul = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setEarfcnul = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -5564,9 +5757,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getRbsperttidl = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setRbsperttidl = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -5579,9 +5775,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getRbsperttiul = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setRbsperttiul = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -5594,9 +5793,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getNumtxantenna = function() 
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setNumtxantenna = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -5609,9 +5811,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getDuplexmode = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setDuplexmode = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -5624,9 +5829,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getMaxnumconnectedues = funct
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setMaxnumconnectedues = function(value) {
-  jspb.Message.setProto3StringField(this, 10, value);
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -5639,9 +5847,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getMaxnumconnectedbearers = f
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setMaxnumconnectedbearers = function(value) {
-  jspb.Message.setProto3StringField(this, 11, value);
+  return jspb.Message.setProto3StringField(this, 11, value);
 };
 
 
@@ -5654,9 +5865,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getMaxnumuesschedperttidl = f
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setMaxnumuesschedperttidl = function(value) {
-  jspb.Message.setProto3StringField(this, 12, value);
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -5669,9 +5883,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getMaxnumuesschedperttiul = f
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setMaxnumuesschedperttiul = function(value) {
-  jspb.Message.setProto3StringField(this, 13, value);
+  return jspb.Message.setProto3StringField(this, 13, value);
 };
 
 
@@ -5684,9 +5901,12 @@ proto.interface.c1.C1CellConfigAttribute.prototype.getDlfsschedenable = function
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1CellConfigAttribute} returns this
+ */
 proto.interface.c1.C1CellConfigAttribute.prototype.setDlfsschedenable = function(value) {
-  jspb.Message.setProto3StringField(this, 14, value);
+  return jspb.Message.setProto3StringField(this, 14, value);
 };
 
 
@@ -5823,9 +6043,12 @@ proto.interface.c1.C1PciArfcn.prototype.getPci = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1PciArfcn} returns this
+ */
 proto.interface.c1.C1PciArfcn.prototype.setPci = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -5838,9 +6061,12 @@ proto.interface.c1.C1PciArfcn.prototype.getEarfcndl = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1PciArfcn} returns this
+ */
 proto.interface.c1.C1PciArfcn.prototype.setEarfcndl = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -6097,17 +6323,21 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1ECGI|undefined} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+*/
 proto.interface.c1.C1RRMConfigAttribute.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -6129,26 +6359,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getCrntiList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setCrntiList = function(value) {
-  jspb.Message.setField(this, 2, value || []);
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addCrnti = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearCrntiList = function() {
-  this.setCrntiList([]);
+  return this.setCrntiList([]);
 };
 
 
@@ -6162,17 +6397,21 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getPciarfcn = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1PciArfcn|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1PciArfcn|undefined} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+*/
 proto.interface.c1.C1RRMConfigAttribute.prototype.setPciarfcn = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearPciarfcn = function() {
-  this.setPciarfcn(undefined);
+  return this.setPciarfcn(undefined);
 };
 
 
@@ -6194,26 +6433,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getPaList = function() {
 };
 
 
-/** @param {!Array<!proto.interface.c1.C1XICICPA>} value */
+/**
+ * @param {!Array<!proto.interface.c1.C1XICICPA>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setPaList = function(value) {
-  jspb.Message.setField(this, 4, value || []);
+  return jspb.Message.setField(this, 4, value || []);
 };
 
 
 /**
  * @param {!proto.interface.c1.C1XICICPA} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addPa = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearPaList = function() {
-  this.setPaList([]);
+  return this.setPaList([]);
 };
 
 
@@ -6226,26 +6470,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getStartprbdlList = function()
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setStartprbdlList = function(value) {
-  jspb.Message.setField(this, 5, value || []);
+  return jspb.Message.setField(this, 5, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addStartprbdl = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 5, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearStartprbdlList = function() {
-  this.setStartprbdlList([]);
+  return this.setStartprbdlList([]);
 };
 
 
@@ -6258,26 +6507,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getEndprbdlList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setEndprbdlList = function(value) {
-  jspb.Message.setField(this, 6, value || []);
+  return jspb.Message.setField(this, 6, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addEndprbdl = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 6, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearEndprbdlList = function() {
-  this.setEndprbdlList([]);
+  return this.setEndprbdlList([]);
 };
 
 
@@ -6290,26 +6544,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getSubframebitmaskdlList = fun
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setSubframebitmaskdlList = function(value) {
-  jspb.Message.setField(this, 7, value || []);
+  return jspb.Message.setField(this, 7, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addSubframebitmaskdl = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 7, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 7, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearSubframebitmaskdlList = function() {
-  this.setSubframebitmaskdlList([]);
+  return this.setSubframebitmaskdlList([]);
 };
 
 
@@ -6322,26 +6581,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getP0uepuschList = function() 
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setP0uepuschList = function(value) {
-  jspb.Message.setField(this, 8, value || []);
+  return jspb.Message.setField(this, 8, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addP0uepusch = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 8, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 8, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearP0uepuschList = function() {
-  this.setP0uepuschList([]);
+  return this.setP0uepuschList([]);
 };
 
 
@@ -6354,26 +6618,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getStartprbulList = function()
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setStartprbulList = function(value) {
-  jspb.Message.setField(this, 9, value || []);
+  return jspb.Message.setField(this, 9, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addStartprbul = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 9, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 9, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearStartprbulList = function() {
-  this.setStartprbulList([]);
+  return this.setStartprbulList([]);
 };
 
 
@@ -6386,26 +6655,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getEndprbulList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setEndprbulList = function(value) {
-  jspb.Message.setField(this, 10, value || []);
+  return jspb.Message.setField(this, 10, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addEndprbul = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 10, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 10, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearEndprbulList = function() {
-  this.setEndprbulList([]);
+  return this.setEndprbulList([]);
 };
 
 
@@ -6418,26 +6692,31 @@ proto.interface.c1.C1RRMConfigAttribute.prototype.getSubframebitmaskulList = fun
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
+ */
 proto.interface.c1.C1RRMConfigAttribute.prototype.setSubframebitmaskulList = function(value) {
-  jspb.Message.setField(this, 11, value || []);
+  return jspb.Message.setField(this, 11, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.addSubframebitmaskul = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 11, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 11, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RRMConfigAttribute} returns this
  */
 proto.interface.c1.C1RRMConfigAttribute.prototype.clearSubframebitmaskulList = function() {
-  this.setSubframebitmaskulList([]);
+  return this.setSubframebitmaskulList([]);
 };
 
 
@@ -6612,9 +6891,12 @@ proto.interface.c1.C1RNIBUE.prototype.getImsi = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1RNIBUE} returns this
+ */
 proto.interface.c1.C1RNIBUE.prototype.setImsi = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -6627,9 +6909,12 @@ proto.interface.c1.C1RNIBUE.prototype.getCrnti = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1RNIBUE} returns this
+ */
 proto.interface.c1.C1RNIBUE.prototype.setCrnti = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -6643,17 +6928,21 @@ proto.interface.c1.C1RNIBUE.prototype.getScell = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1ECGI|undefined} value
+ * @return {!proto.interface.c1.C1RNIBUE} returns this
+*/
 proto.interface.c1.C1RNIBUE.prototype.setScell = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RNIBUE} returns this
  */
 proto.interface.c1.C1RNIBUE.prototype.clearScell = function() {
-  this.setScell(undefined);
+  return this.setScell(undefined);
 };
 
 
@@ -6675,9 +6964,12 @@ proto.interface.c1.C1RNIBUE.prototype.getMmeues1apid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1RNIBUE} returns this
+ */
 proto.interface.c1.C1RNIBUE.prototype.setMmeues1apid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -6690,9 +6982,12 @@ proto.interface.c1.C1RNIBUE.prototype.getEnbues1apid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1RNIBUE} returns this
+ */
 proto.interface.c1.C1RNIBUE.prototype.setEnbues1apid = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -6832,17 +7127,21 @@ proto.interface.c1.C1RNIBLinkID.prototype.getEcgi = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1ECGI|undefined} value
+ * @return {!proto.interface.c1.C1RNIBLinkID} returns this
+*/
 proto.interface.c1.C1RNIBLinkID.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RNIBLinkID} returns this
  */
 proto.interface.c1.C1RNIBLinkID.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -6864,9 +7163,12 @@ proto.interface.c1.C1RNIBLinkID.prototype.getImsi = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.interface.c1.C1RNIBLinkID} returns this
+ */
 proto.interface.c1.C1RNIBLinkID.prototype.setImsi = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -7049,17 +7351,21 @@ proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.getEcgi = function()
 };
 
 
-/** @param {?proto.interface.c1.C1ECGI|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1ECGI|undefined} value
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
+*/
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.setEcgi = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.clearEcgi = function() {
-  this.setEcgi(undefined);
+  return this.setEcgi(undefined);
 };
 
 
@@ -7081,26 +7387,31 @@ proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.getCqihistList = fun
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
+ */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.setCqihistList = function(value) {
-  jspb.Message.setField(this, 2, value || []);
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.addCqihist = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.clearCqihistList = function() {
-  this.setCqihistList([]);
+  return this.setCqihistList([]);
 };
 
 
@@ -7113,26 +7424,31 @@ proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.getRihistList = func
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
+ */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.setRihistList = function(value) {
-  jspb.Message.setField(this, 3, value || []);
+  return jspb.Message.setField(this, 3, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.addRihist = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 3, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.clearRihistList = function() {
-  this.setRihistList([]);
+  return this.setRihistList([]);
 };
 
 
@@ -7145,26 +7461,31 @@ proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.getPuschsinrhistList
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
+ */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.setPuschsinrhistList = function(value) {
-  jspb.Message.setField(this, 4, value || []);
+  return jspb.Message.setField(this, 4, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.addPuschsinrhist = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.clearPuschsinrhistList = function() {
-  this.setPuschsinrhistList([]);
+  return this.setPuschsinrhistList([]);
 };
 
 
@@ -7177,26 +7498,31 @@ proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.getPucchsinrhistList
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
+ */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.setPucchsinrhistList = function(value) {
-  jspb.Message.setField(this, 5, value || []);
+  return jspb.Message.setField(this, 5, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.addPucchsinrhist = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 5, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RadioRepPerServCellAttribute} returns this
  */
 proto.interface.c1.C1RadioRepPerServCellAttribute.prototype.clearPucchsinrhistList = function() {
-  this.setPucchsinrhistList([]);
+  return this.setPucchsinrhistList([]);
 };
 
 
@@ -7332,9 +7658,12 @@ proto.interface.c1.C1RadioMeasReportPerUeAttribute.prototype.getRadiorepperservc
 };
 
 
-/** @param {!Array<!proto.interface.c1.C1RadioRepPerServCellAttribute>} value */
+/**
+ * @param {!Array<!proto.interface.c1.C1RadioRepPerServCellAttribute>} value
+ * @return {!proto.interface.c1.C1RadioMeasReportPerUeAttribute} returns this
+*/
 proto.interface.c1.C1RadioMeasReportPerUeAttribute.prototype.setRadiorepperservcellList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -7350,9 +7679,10 @@ proto.interface.c1.C1RadioMeasReportPerUeAttribute.prototype.addRadiorepperservc
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.interface.c1.C1RadioMeasReportPerUeAttribute} returns this
  */
 proto.interface.c1.C1RadioMeasReportPerUeAttribute.prototype.clearRadiorepperservcellList = function() {
-  this.setRadiorepperservcellList([]);
+  return this.setRadiorepperservcellList([]);
 };
 
 
@@ -7494,17 +7824,21 @@ proto.interface.c1.C1RNIBLink.prototype.getLinkid = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RNIBLinkID|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RNIBLinkID|undefined} value
+ * @return {!proto.interface.c1.C1RNIBLink} returns this
+*/
 proto.interface.c1.C1RNIBLink.prototype.setLinkid = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RNIBLink} returns this
  */
 proto.interface.c1.C1RNIBLink.prototype.clearLinkid = function() {
-  this.setLinkid(undefined);
+  return this.setLinkid(undefined);
 };
 
 
@@ -7527,17 +7861,21 @@ proto.interface.c1.C1RNIBLink.prototype.getRadiomeasreportperue = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RadioMeasReportPerUeAttribute|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RadioMeasReportPerUeAttribute|undefined} value
+ * @return {!proto.interface.c1.C1RNIBLink} returns this
+*/
 proto.interface.c1.C1RNIBLink.prototype.setRadiomeasreportperue = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RNIBLink} returns this
  */
 proto.interface.c1.C1RNIBLink.prototype.clearRadiomeasreportperue = function() {
-  this.setRadiomeasreportperue(undefined);
+  return this.setRadiomeasreportperue(undefined);
 };
 
 
@@ -7702,17 +8040,21 @@ proto.interface.c1.C1HandoverRequest.prototype.getLinks = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RNIBLinks|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RNIBLinks|undefined} value
+ * @return {!proto.interface.c1.C1HandoverRequest} returns this
+*/
 proto.interface.c1.C1HandoverRequest.prototype.setLinks = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1HandoverRequest} returns this
  */
 proto.interface.c1.C1HandoverRequest.prototype.clearLinks = function() {
-  this.setLinks(undefined);
+  return this.setLinks(undefined);
 };
 
 
@@ -7735,17 +8077,21 @@ proto.interface.c1.C1HandoverRequest.prototype.getSrccells = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RNIBCells|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RNIBCells|undefined} value
+ * @return {!proto.interface.c1.C1HandoverRequest} returns this
+*/
 proto.interface.c1.C1HandoverRequest.prototype.setSrccells = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1HandoverRequest} returns this
  */
 proto.interface.c1.C1HandoverRequest.prototype.clearSrccells = function() {
-  this.setSrccells(undefined);
+  return this.setSrccells(undefined);
 };
 
 
@@ -7768,17 +8114,21 @@ proto.interface.c1.C1HandoverRequest.prototype.getDstcells = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RNIBCells|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RNIBCells|undefined} value
+ * @return {!proto.interface.c1.C1HandoverRequest} returns this
+*/
 proto.interface.c1.C1HandoverRequest.prototype.setDstcells = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1HandoverRequest} returns this
  */
 proto.interface.c1.C1HandoverRequest.prototype.clearDstcells = function() {
-  this.setDstcells(undefined);
+  return this.setDstcells(undefined);
 };
 
 
@@ -7915,17 +8265,21 @@ proto.interface.c1.C1RRMConfiguration.prototype.getTargetcells = function() {
 };
 
 
-/** @param {?proto.interface.c1.C1RNIBCells|undefined} value */
+/**
+ * @param {?proto.interface.c1.C1RNIBCells|undefined} value
+ * @return {!proto.interface.c1.C1RRMConfiguration} returns this
+*/
 proto.interface.c1.C1RRMConfiguration.prototype.setTargetcells = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.interface.c1.C1RRMConfiguration} returns this
  */
 proto.interface.c1.C1RRMConfiguration.prototype.clearTargetcells = function() {
-  this.setTargetcells(undefined);
+  return this.setTargetcells(undefined);
 };
 
 

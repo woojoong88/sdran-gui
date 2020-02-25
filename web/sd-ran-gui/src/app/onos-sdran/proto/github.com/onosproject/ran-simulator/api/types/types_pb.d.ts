@@ -230,6 +230,15 @@ export class MapLayout extends jspb.Message {
   getShowpower(): boolean;
   setShowpower(value: boolean): void;
 
+  getMinRoutes(): number;
+  setMinRoutes(value: number): void;
+
+  getMaxRoutes(): number;
+  setMaxRoutes(value: number): void;
+
+  getCurrentRoutes(): number;
+  setCurrentRoutes(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MapLayout.AsObject;
   static toObject(includeInstance: boolean, msg: MapLayout): MapLayout.AsObject;
@@ -245,6 +254,9 @@ export namespace MapLayout {
     fade: boolean,
     showroutes: boolean,
     showpower: boolean,
+    minRoutes: number,
+    maxRoutes: number,
+    currentRoutes: number,
   }
 }
 

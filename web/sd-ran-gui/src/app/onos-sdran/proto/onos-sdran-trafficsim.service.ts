@@ -15,12 +15,17 @@
  */
 
 import {Inject, Injectable} from '@angular/core';
-import {TrafficClient} from './github.com/onosproject/ran-simulator/api/trafficsim/trafficsimServiceClientPb';
+import {TrafficClient} from './github.com/onosproject/ran-simulator/api/trafficsim/TrafficsimServiceClientPb';
 import {Observable, Subscriber} from 'rxjs';
 import {MapLayout, Tower} from './github.com/onosproject/ran-simulator/api/types/types_pb';
 import {
-    ListRoutesRequest, ListRoutesResponse,
-    ListTowersRequest, ListTowersResponse, ListUesResponse, MapLayoutRequest
+    ListRoutesRequest,
+    ListRoutesResponse,
+    ListTowersRequest,
+    ListTowersResponse,
+    ListUesResponse,
+    MapLayoutRequest, SetNumberUEsRequest,
+    SetNumberUEsResponse
 } from './github.com/onosproject/ran-simulator/api/trafficsim/trafficsim_pb';
 import * as grpcWeb from 'grpc-web';
 
@@ -119,5 +124,26 @@ export class OnosSdranTrafficsimService {
         });
 
         return listUesObs;
+    }
+
+    requestSetNumUes(numUEs: number): Observable<SetNumberUEsResponse> {
+        const req = new SetNumberUEsRequest();
+        req.setNumber(numUEs);
+        const setNumUeObs = new Observable<SetNumberUEsResponse>((observer: Subscriber<SetNumberUEsResponse>) => {
+            const call = this.trafficClient.setNumberUEs(req, {}, (err, resp) => {
+                if (err) {
+                    observer.error(err);
+                } else {
+                    observer.next(resp);
+                }
+                call.on('error', (error: grpcWeb.Error) => {
+                    observer.error(error);
+                });
+                call.on('end', () => {
+                    observer.complete();
+                });
+            });
+        });
+        return setNumUeObs;
     }
 }

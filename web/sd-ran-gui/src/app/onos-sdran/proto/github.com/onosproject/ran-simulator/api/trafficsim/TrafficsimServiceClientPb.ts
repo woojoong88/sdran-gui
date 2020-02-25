@@ -18,7 +18,9 @@ import {
   ListTowersResponse,
   ListUesRequest,
   ListUesResponse,
-  MapLayoutRequest} from './trafficsim_pb';
+  MapLayoutRequest,
+  SetNumberUEsRequest,
+  SetNumberUEsResponse} from './trafficsim_pb';
 
 export class TrafficClient {
   client_: grpcWeb.AbstractClientBase;
@@ -116,6 +118,28 @@ export class TrafficClient {
       request,
       metadata || {},
       this.methodInfoListUes);
+  }
+
+  methodInfoSetNumberUEs = new grpcWeb.AbstractClientBase.MethodInfo(
+    SetNumberUEsResponse,
+    (request: SetNumberUEsRequest) => {
+      return request.serializeBinary();
+    },
+    SetNumberUEsResponse.deserializeBinary
+  );
+
+  setNumberUEs(
+    request: SetNumberUEsRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.Error,
+               response: SetNumberUEsResponse) => void) {
+    return this.client_.rpcCall(
+      this.hostname_ +
+        '/ran.trafficsim.Traffic/SetNumberUEs',
+      request,
+      metadata || {},
+      this.methodInfoSetNumberUEs,
+      callback);
   }
 
 }

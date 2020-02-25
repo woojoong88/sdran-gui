@@ -15,7 +15,7 @@
  */
 
 import {Inject, Injectable} from '@angular/core';
-import {C1InterfaceServiceClient} from './github.com/onosproject/onos-ric/api/nb/c1-interfaceServiceClientPb';
+import {C1InterfaceServiceClient} from './github.com/onosproject/onos-ric/api/nb/C1-interfaceServiceClientPb';
 import {Observable, Subscriber} from 'rxjs';
 import {
     StationInfo, StationLinkInfo, StationLinkListRequest, StationListRequest,

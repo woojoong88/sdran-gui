@@ -34,6 +34,7 @@ import {
     Type,
     UpdateType
 } from '../proto/github.com/onosproject/ran-simulator/api/trafficsim/trafficsim_pb';
+import {ConnectivityService} from '../../connectivity.service';
 
 export const CAR_ICON = 'M29.395,0H17.636c-3.117,0-5.643,3.467-5.643,6.584v34.804c0,3.116,2.526,5.644,5.643,5.644h11.759 ' +
     'c3.116,0,5.644-2.527,5.644-5.644V6.584C35.037,3.467,32.511,0,29.395,0z M34.05,14.188v11.665l-2.729,0.351v-4.806L34.05,14.188z ' +
@@ -86,9 +87,12 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
     towerSub: Subscription;
     routesSub: Subscription;
     uesSub: Subscription;
+    numRoutesOptions: number[] = [];
+    numRoutes = 3;
 
     constructor(
-        private trafficSimService: OnosSdranTrafficsimService
+        private trafficSimService: OnosSdranTrafficsimService,
+        private connectivityService: ConnectivityService
     ) {
         this.towerMarkers = new Map<string, google.maps.Marker>();
         this.routes = new Map<string, google.maps.Polyline>();
@@ -98,14 +102,25 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.trafficSimService.requestGetMapLayout().subscribe((mapLayout) => {
-            this.center = new google.maps.LatLng(mapLayout.getCenter().getLat(), mapLayout.getCenter().getLng());
-            this.zoom = mapLayout.getZoom();
-            this.showRoutes = mapLayout.getShowroutes();
-            this.showMap = !mapLayout.getFade();
-            this.showPower = mapLayout.getShowpower();
-        });
-
+        this.trafficSimService.requestGetMapLayout().subscribe(
+            (mapLayout) => {
+                this.center = new google.maps.LatLng(mapLayout.getCenter().getLat(), mapLayout.getCenter().getLng());
+                this.zoom = mapLayout.getZoom();
+                this.showRoutes = mapLayout.getShowroutes();
+                this.showMap = !mapLayout.getFade();
+                this.showPower = mapLayout.getShowpower();
+                this.numRoutesOptions = this.calculateNumUEsOptions(mapLayout.getMinRoutes(), mapLayout.getMaxRoutes());
+                this.numRoutes = mapLayout.getCurrentRoutes();
+                if (this.numRoutes === 0) { // TODO: Remove this hack to get around a bug
+                    this.numRoutes = mapLayout.getMinRoutes();
+                }
+            },
+            (err) => {
+                this.connectivityService.showVeil([
+                    'GetMapLayout gRPC error', String(err.code), err.message,
+                    'Please ensure ran-simulator is reachable']);
+                console.warn('Error connecting to ran-simulator', err);
+            });
     }
 
     ngAfterViewInit(): void {
@@ -127,8 +142,11 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
             } else {
                 console.warn('Unhandled Route response type', resp.getType(), 'for', resp.getTower().getName());
             }
-        }, error => {
-            console.error('Tower', error);
+        }, err => {
+            this.connectivityService.showVeil([
+                'ListTowers gRPC error', String(err.code), err.message,
+                'Please ensure ran-simulator is reachable']);
+            console.error('Tower', err);
         });
 
         // Get the list of routes - we're doing this here because we need to wait until `googleMap` object is populated
@@ -138,12 +156,16 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
             } else if (resp.getType() === Type.UPDATED) {
                 this.updateRoute(resp.getRoute());
             } else if (resp.getType() === Type.REMOVED) {
+                this.routes.get(resp.getRoute().getName()).setMap(null);
                 this.routes.delete(resp.getRoute().getName());
             } else {
                 console.warn('Unhandled Route response type', resp.getType(), 'for', resp.getRoute().getName());
             }
-        }, error => {
-            console.error('Tower', error);
+        }, err => {
+            this.connectivityService.showVeil([
+                'ListRoutes gRPC error', String(err.code), err.message,
+                'Please ensure ran-simulator is reachable']);
+            console.error('Routes', err);
         });
 
         this.uesSub = this.trafficSimService.requestListUes().subscribe((resp: ListUesResponse) => {
@@ -152,13 +174,18 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
             } else if (resp.getType() === Type.UPDATED) {
                 this.updateCar(resp.getUe(), resp.getUpdateType());
             } else if (resp.getType() === Type.REMOVED) {
+                this.carMap.get(resp.getUe().getName()).setMap(null);
                 this.carMap.delete(resp.getUe().getName());
+                this.carLineMap.get(resp.getUe().getName()).setMap(null);
                 this.carLineMap.delete(resp.getUe().getName());
             } else {
                 console.warn('Unhandled Ue response type', resp.getType(), 'for', resp.getUe().getName());
             }
-        }, error => {
-            console.error('Tower', error);
+        }, err => {
+            this.connectivityService.showVeil([
+                'ListRoutes gRPC error', String(err.code), err.message,
+                'Please ensure ran-simulator is reachable']);
+            console.error('UEs', err);
         });
     }
 
@@ -196,12 +223,36 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
             towerMapMarker.getTitle(),
             ' Lat: ' + this.roundNumber(towerMapMarker.getPosition().lat(), '°', 5),
             ' Lng: ' + this.roundNumber(towerMapMarker.getPosition().lng(), '°', 5),
-            ];
+        ];
         this.infoWindow.open(towerMapMarker);
     }
 
+    changeNumUes(numUEs: number) {
+        this.trafficSimService.requestSetNumUes(numUEs).subscribe(
+            (resp) => {
+                console.log('Set successful', resp.getNumber());
+            },
+            (err) => {
+                console.error('Setting num UEs failed', err);
+            });
+    }
+
+    calculateNumUEsOptions(min: number, max: number): number[] {
+        const options = new Array<number>();
+        options.push(min);
+        for (let i = Math.log10(min) + 0.5; i < Math.log10(max); i = i + 0.5) {
+            const next = Math.pow(10, i);
+            options.push(Math.round(next / 10) * 10);
+        }
+        options.push(max);
+        return options;
+    }
+
     private initTower(tower: Tower, zoom: number): void {
-        const pos = {lat: tower.getLocation().getLat(), lng: tower.getLocation().getLng()};
+        const pos = {
+            lat: tower.getLocation().getLat(),
+            lng: tower.getLocation().getLng()
+        };
         const towerMarker = new google.maps.Marker();
         towerMarker.setPosition(pos);
         towerMarker.setTitle(tower.getName() + ' ' + this.roundNumber(tower.getTxpowerdb(), 'dB'));
@@ -262,8 +313,8 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
         });
         this.towerMarkers.get(tower.getName()).setTitle(tower.getName() + ' ' + this.roundNumber(tower.getTxpowerdb(), 'dB'));
         setTimeout(() => {
-                this.towerMarkers.get(tower.getName()).setIcon(previousIcon);
-            }, FLASH_FOR_MS);
+            this.towerMarkers.get(tower.getName()).setIcon(previousIcon);
+        }, FLASH_FOR_MS);
     }
 
     private deleteTower(tower: Tower) {
@@ -304,20 +355,17 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private initCar(car: Ue): void {
-        const servingTower = this.towerMarkers.get(car.getServingTower());
-
         const carMarker = new google.maps.Marker({
             icon: {
                 path: CAR_ICON,
                 scale: this.zoom * CAR_SCALING_FACTOR_DEFAULT,
-                fillColor: (servingTower.getIcon() as google.maps.ReadonlySymbol).fillColor,
                 anchor: new google.maps.Point(25, 25),
                 fillOpacity: 1,
                 rotation: 0,
                 strokeWeight: 1
             }
         });
-        carMarker.setLabel(car.getName());
+        // carMarker.setLabel(car.getName());
         carMarker.setTitle(car.getName());
         carMarker.setPosition(
             new google.maps.LatLng(
@@ -328,10 +376,8 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
         // Now need a line from the car to the towerEntry
         const carPolyline = new google.maps.Polyline({
-            strokeColor: (servingTower.getIcon() as google.maps.ReadonlySymbol).fillColor,
             strokeWeight: 1
         } as google.maps.PolylineOptions);
-        carPolyline.setPath([carMarker.getPosition(), servingTower.getPosition()]);
         carPolyline.setMap(this.googleMap._googleMap);
         this.carLineMap.set(car.getName(), carPolyline);
     }
@@ -341,14 +387,14 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
         const servingTower = this.towerMarkers.get(car.getServingTower());
         if (this.carMap.get(car.getName()) !== undefined) {
             this.carMap.get(car.getName()).setPosition(newPos);
-            this.carMap.get(car.getName()).setTitle(
-                'Serving: ' + car.getServingTower() + ', 1st:' + car.getTower1() +
+            this.carMap.get(car.getName()).setTitle(car.getName() +
+                '. Serving: ' + car.getServingTower() + ', 1st:' + car.getTower1() +
                 ', 2nd:' + car.getTower2() + ', 3rd: ' + car.getTower3());
             this.carMap.get(car.getName()).get('icon').rotation = car.getRotation();
             const icon: google.maps.Symbol = this.carMap.get(car.getName()).get('icon');
             icon.rotation = 270 - car.getRotation();
+            icon.fillColor = (servingTower.getIcon() as google.maps.ReadonlySymbol).fillColor;
             if (updateType === UpdateType.HANDOVER) {
-                icon.fillColor = (servingTower.getIcon() as google.maps.ReadonlySymbol).fillColor;
                 icon.scale = this.zoom * CAR_SCALING_FACTOR_HIGHLIGHT;
                 console.log('HANDOVER on', car.getName(), 'to', car.getServingTower());
                 setTimeout(() => {

@@ -19,10 +19,9 @@ protoc -I=$proto_imports --grpc-web_out=import_style=typescript,mode=grpcwebtext
 protoc -I=$proto_imports --grpc-web_out=import_style=typescript,mode=grpcwebtext:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/trafficsim/trafficsim.proto
 protoc -I=$proto_imports --grpc-web_out=import_style=typescript,mode=grpcwebtext:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/nb/c1-interface.proto
 
+mv github.com/onosproject/ran-simulator/api/nb/* web/sd-ran-gui/src/app/onos-ric/proto/github.com/onosproject/onos-ric/api/nb
 cp -r github.com/onosproject/ran-simulator/* web/sd-ran-gui/src/app/onos-sdran/proto/github.com/onosproject/ran-simulator/
 rm -rf github.com
-cp -r Github.com/onosproject/ran-simulator/* web/sd-ran-gui/src/app/onos-sdran/proto/github.com/onosproject/ran-simulator/
-rm -rf Github.com
 
 # Add the license text to generated files
 for f in $(find web/sd-ran-gui/src/app/onos-*/proto/github.com/ -type f -name "*.d.ts"); do

@@ -160,6 +160,42 @@ export namespace ListUesResponse {
   }
 }
 
+export class SetNumberUEsRequest extends jspb.Message {
+  getNumber(): number;
+  setNumber(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SetNumberUEsRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: SetNumberUEsRequest): SetNumberUEsRequest.AsObject;
+  static serializeBinaryToWriter(message: SetNumberUEsRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SetNumberUEsRequest;
+  static deserializeBinaryFromReader(message: SetNumberUEsRequest, reader: jspb.BinaryReader): SetNumberUEsRequest;
+}
+
+export namespace SetNumberUEsRequest {
+  export type AsObject = {
+    number: number,
+  }
+}
+
+export class SetNumberUEsResponse extends jspb.Message {
+  getNumber(): number;
+  setNumber(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SetNumberUEsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: SetNumberUEsResponse): SetNumberUEsResponse.AsObject;
+  static serializeBinaryToWriter(message: SetNumberUEsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SetNumberUEsResponse;
+  static deserializeBinaryFromReader(message: SetNumberUEsResponse, reader: jspb.BinaryReader): SetNumberUEsResponse;
+}
+
+export namespace SetNumberUEsResponse {
+  export type AsObject = {
+    number: number,
+  }
+}
+
 export enum Type { 
   NONE = 0,
   ADDED = 1,

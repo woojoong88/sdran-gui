@@ -109,6 +109,7 @@ export class UelinksComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
+        clearTimeout(this.timer);
         this.uelinksSub.unsubscribe();
     }
 
