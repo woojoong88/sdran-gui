@@ -74,7 +74,7 @@ export class OnosGuiRicService {
 
     requestListStationLinks(ecgi: ECGI): Observable<StationLinkInfo> {
         const req = new StationLinkListRequest();
-        // req.setEcgi(ecgi); Not implemented in onos-ran
+        // req.setEcgi(ecgi); Not implemented in onos-ric
         const stream = this.c1InterfaceClient.listStationLinks(req, {});
         const listStationLinksObs = new Observable<StationLinkInfo>((observer: Subscriber<StationLinkInfo>) => {
             stream.on('data', (stationLinkInfo: StationLinkInfo) => {

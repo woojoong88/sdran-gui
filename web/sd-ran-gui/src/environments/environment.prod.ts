@@ -18,4 +18,4 @@ export const environment = {
 };
 
 export const ranSimulatorUrl = 'http://' + window.location.host + '/ran-simulator';
-export const onosRicUrl = 'http://' + window.location.host + '/onos-ran';
+export const onosRicUrl = 'http://' + window.location.host + '/onos-ric';
