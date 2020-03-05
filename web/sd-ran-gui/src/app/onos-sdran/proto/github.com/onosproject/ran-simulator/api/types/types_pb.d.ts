@@ -100,6 +100,11 @@ export class Ue extends jspb.Message {
   getAdmitted(): boolean;
   setAdmitted(value: boolean): void;
 
+  getMetrics(): UeMetrics | undefined;
+  setMetrics(value?: UeMetrics): void;
+  hasMetrics(): boolean;
+  clearMetrics(): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Ue.AsObject;
   static toObject(includeInstance: boolean, msg: Ue): Ue.AsObject;
@@ -125,6 +130,29 @@ export namespace Ue {
     tower3Dist: number,
     crnti: string,
     admitted: boolean,
+    metrics?: UeMetrics.AsObject,
+  }
+}
+
+export class UeMetrics extends jspb.Message {
+  getHoLatency(): number;
+  setHoLatency(value: number): void;
+
+  getHoReportTimestamp(): number;
+  setHoReportTimestamp(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UeMetrics.AsObject;
+  static toObject(includeInstance: boolean, msg: UeMetrics): UeMetrics.AsObject;
+  static serializeBinaryToWriter(message: UeMetrics, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UeMetrics;
+  static deserializeBinaryFromReader(message: UeMetrics, reader: jspb.BinaryReader): UeMetrics;
+}
+
+export namespace UeMetrics {
+  export type AsObject = {
+    hoLatency: number,
+    hoReportTimestamp: number,
   }
 }
 
@@ -141,8 +169,11 @@ export class TowersParams extends jspb.Message {
   getTowerspacinghoriz(): number;
   setTowerspacinghoriz(value: number): void;
 
-  getMaxues(): number;
-  setMaxues(value: number): void;
+  getLocationsscale(): number;
+  setLocationsscale(value: number): void;
+
+  getMaxuespertower(): number;
+  setMaxuespertower(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TowersParams.AsObject;
@@ -158,7 +189,8 @@ export namespace TowersParams {
     towercols: number,
     towerspacingvert: number,
     towerspacinghoriz: number,
-    maxues: number,
+    locationsscale: number,
+    maxuespertower: number,
   }
 }
 
@@ -230,11 +262,11 @@ export class MapLayout extends jspb.Message {
   getShowpower(): boolean;
   setShowpower(value: boolean): void;
 
-  getMinRoutes(): number;
-  setMinRoutes(value: number): void;
+  getMinUes(): number;
+  setMinUes(value: number): void;
 
-  getMaxRoutes(): number;
-  setMaxRoutes(value: number): void;
+  getMaxUes(): number;
+  setMaxUes(value: number): void;
 
   getCurrentRoutes(): number;
   setCurrentRoutes(value: number): void;
@@ -254,8 +286,8 @@ export namespace MapLayout {
     fade: boolean,
     showroutes: boolean,
     showpower: boolean,
-    minRoutes: number,
-    maxRoutes: number,
+    minUes: number,
+    maxUes: number,
     currentRoutes: number,
   }
 }

@@ -1,6 +1,6 @@
 # SD-RAN GUI
 
-The SD-RAN GUI is part of µONOS and is meant to work alongside `sd-ran-gui` and
+The SD-RAN GUI is part of µONOS and is meant to work alongside `ran-simulator` and
 the `envoy-proxy`. The `ran-simulator` in turn works with `onos-ran` through the
 **E2** interface.
 

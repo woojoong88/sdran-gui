@@ -109,10 +109,10 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.showRoutes = mapLayout.getShowroutes();
                 this.showMap = !mapLayout.getFade();
                 this.showPower = mapLayout.getShowpower();
-                this.numRoutesOptions = this.calculateNumUEsOptions(mapLayout.getMinRoutes(), mapLayout.getMaxRoutes());
+                this.numRoutesOptions = this.calculateNumUEsOptions(mapLayout.getMinUes(), mapLayout.getMaxUes());
                 this.numRoutes = mapLayout.getCurrentRoutes();
                 if (this.numRoutes === 0) { // TODO: Remove this hack to get around a bug
-                    this.numRoutes = mapLayout.getMinRoutes();
+                    this.numRoutes = mapLayout.getMinUes();
                 }
             },
             (err) => {
