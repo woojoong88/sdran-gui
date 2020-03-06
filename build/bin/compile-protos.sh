@@ -11,6 +11,7 @@ wget https://raw.githubusercontent.com/onosproject/onos-ran/master/api/nb/c1-int
 protoc -I=$proto_imports --js_out=import_style=commonjs:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/types/types.proto
 protoc -I=$proto_imports --js_out=import_style=commonjs:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/trafficsim/trafficsim.proto
 protoc -I=$proto_imports --js_out=import_style=commonjs:. ${GOPATH}/src/github.com/onosproject/ran-simulator/api/nb/c1-interface.proto
+protoc -I=$proto_imports --js_out=import_style=commonjs:. ${GOPATH}/src/github.com/gogo/protobuf/gogoproto/gogo.proto
 
 # Currently a bug in the below command outputs to "Github.com" (uppercase G)
 # The below uses grpcwebtext as Google implementation does not fully support server side streaming yet (Aug'19)
@@ -22,6 +23,8 @@ protoc -I=$proto_imports --grpc-web_out=import_style=typescript,mode=grpcwebtext
 mv github.com/onosproject/ran-simulator/api/nb/* web/sd-ran-gui/src/app/onos-ric/proto/github.com/onosproject/onos-ric/api/nb
 cp -r github.com/onosproject/ran-simulator/* web/sd-ran-gui/src/app/onos-sdran/proto/github.com/onosproject/ran-simulator/
 rm -rf github.com
+cp -r gogoproto/* web/sd-ran-gui/src/app/onos-sdran/proto/gogoproto/
+rm -rf gogoproto
 
 # Add the license text to generated files
 for f in $(find web/sd-ran-gui/src/app/onos-*/proto/github.com/ -type f -name "*.d.ts"); do

@@ -2,6 +2,8 @@
 
 import * as jspb from "google-protobuf"
 
+import * as gogoproto_gogo_pb from '../../../../../gogoproto/gogo_pb';
+
 export class Point extends jspb.Message {
   getLat(): number;
   setLat(value: number): void;
@@ -195,8 +197,11 @@ export namespace TowersParams {
 }
 
 export class Tower extends jspb.Message {
-  getName(): string;
-  setName(value: string): void;
+  getEcid(): string;
+  setEcid(value: string): void;
+
+  getPlmnid(): string;
+  setPlmnid(value: string): void;
 
   getLocation(): Point | undefined;
   setLocation(value?: Point): void;
@@ -205,12 +210,6 @@ export class Tower extends jspb.Message {
 
   getColor(): string;
   setColor(value: string): void;
-
-  getEcid(): string;
-  setEcid(value: string): void;
-
-  getPlmnid(): string;
-  setPlmnid(value: string): void;
 
   getMaxues(): number;
   setMaxues(value: number): void;
@@ -223,6 +222,12 @@ export class Tower extends jspb.Message {
   getTxpowerdb(): number;
   setTxpowerdb(value: number): void;
 
+  getCrntimapMap(): jspb.Map<string, string>;
+  clearCrntimapMap(): void;
+
+  getCrntiindex(): number;
+  setCrntiindex(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Tower.AsObject;
   static toObject(includeInstance: boolean, msg: Tower): Tower.AsObject;
@@ -233,14 +238,15 @@ export class Tower extends jspb.Message {
 
 export namespace Tower {
   export type AsObject = {
-    name: string,
-    location?: Point.AsObject,
-    color: string,
     ecid: string,
     plmnid: string,
+    location?: Point.AsObject,
+    color: string,
     maxues: number,
     neighborsList: Array<string>,
     txpowerdb: number,
+    crntimapMap: Array<[string, string]>,
+    crntiindex: number,
   }
 }
 

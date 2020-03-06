@@ -12,6 +12,8 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var gogoproto_gogo_pb = require('../../../../../gogoproto/gogo_pb.js');
+goog.object.extend(proto, gogoproto_gogo_pb);
 goog.exportSymbol('proto.ran.trafficsim.types.MapLayout', null, global);
 goog.exportSymbol('proto.ran.trafficsim.types.Point', null, global);
 goog.exportSymbol('proto.ran.trafficsim.types.Route', null, global);
@@ -1614,7 +1616,7 @@ proto.ran.trafficsim.types.TowersParams.prototype.setMaxuespertower = function(v
  * @private {!Array<number>}
  * @const
  */
-proto.ran.trafficsim.types.Tower.repeatedFields_ = [7];
+proto.ran.trafficsim.types.Tower.repeatedFields_ = [6];
 
 
 
@@ -1647,14 +1649,15 @@ proto.ran.trafficsim.types.Tower.prototype.toObject = function(opt_includeInstan
  */
 proto.ran.trafficsim.types.Tower.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    ecid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    plmnid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     location: (f = msg.getLocation()) && proto.ran.trafficsim.types.Point.toObject(includeInstance, f),
-    color: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    ecid: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    plmnid: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    maxues: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    neighborsList: (f = jspb.Message.getRepeatedField(msg, 7)) == null ? undefined : f,
-    txpowerdb: jspb.Message.getFloatingPointFieldWithDefault(msg, 8, 0.0)
+    color: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    maxues: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    neighborsList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f,
+    txpowerdb: jspb.Message.getFloatingPointFieldWithDefault(msg, 7, 0.0),
+    crntimapMap: (f = msg.getCrntimapMap()) ? f.toObject(includeInstance, undefined) : [],
+    crntiindex: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -1693,36 +1696,42 @@ proto.ran.trafficsim.types.Tower.deserializeBinaryFromReader = function(msg, rea
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
+      msg.setEcid(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPlmnid(value);
+      break;
+    case 3:
       var value = new proto.ran.trafficsim.types.Point;
       reader.readMessage(value,proto.ran.trafficsim.types.Point.deserializeBinaryFromReader);
       msg.setLocation(value);
       break;
-    case 3:
+    case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setColor(value);
       break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setEcid(value);
-      break;
     case 5:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPlmnid(value);
-      break;
-    case 6:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setMaxues(value);
       break;
-    case 7:
+    case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.addNeighbors(value);
       break;
-    case 8:
+    case 7:
       var value = /** @type {number} */ (reader.readFloat());
       msg.setTxpowerdb(value);
+      break;
+    case 9:
+      var value = msg.getCrntimapMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setCrntiindex(value);
       break;
     default:
       reader.skipField();
@@ -1753,17 +1762,24 @@ proto.ran.trafficsim.types.Tower.prototype.serializeBinary = function() {
  */
 proto.ran.trafficsim.types.Tower.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getName();
+  f = message.getEcid();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
+  f = message.getPlmnid();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getLocation();
   if (f != null) {
     writer.writeMessage(
-      2,
+      3,
       f,
       proto.ran.trafficsim.types.Point.serializeBinaryToWriter
     );
@@ -1771,42 +1787,39 @@ proto.ran.trafficsim.types.Tower.serializeBinaryToWriter = function(message, wri
   f = message.getColor();
   if (f.length > 0) {
     writer.writeString(
-      3,
-      f
-    );
-  }
-  f = message.getEcid();
-  if (f.length > 0) {
-    writer.writeString(
       4,
-      f
-    );
-  }
-  f = message.getPlmnid();
-  if (f.length > 0) {
-    writer.writeString(
-      5,
       f
     );
   }
   f = message.getMaxues();
   if (f !== 0) {
     writer.writeUint32(
-      6,
+      5,
       f
     );
   }
   f = message.getNeighborsList();
   if (f.length > 0) {
     writer.writeRepeatedString(
-      7,
+      6,
       f
     );
   }
   f = message.getTxpowerdb();
   if (f !== 0.0) {
     writer.writeFloat(
-      8,
+      7,
+      f
+    );
+  }
+  f = message.getCrntimapMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(9, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = message.getCrntiindex();
+  if (f !== 0) {
+    writer.writeUint32(
+      10,
       f
     );
   }
@@ -1814,10 +1827,10 @@ proto.ran.trafficsim.types.Tower.serializeBinaryToWriter = function(message, wri
 
 
 /**
- * optional string name = 1;
+ * optional string ecID = 1;
  * @return {string}
  */
-proto.ran.trafficsim.types.Tower.prototype.getName = function() {
+proto.ran.trafficsim.types.Tower.prototype.getEcid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -1826,18 +1839,36 @@ proto.ran.trafficsim.types.Tower.prototype.getName = function() {
  * @param {string} value
  * @return {!proto.ran.trafficsim.types.Tower} returns this
  */
-proto.ran.trafficsim.types.Tower.prototype.setName = function(value) {
+proto.ran.trafficsim.types.Tower.prototype.setEcid = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional Point location = 2;
+ * optional string plmnID = 2;
+ * @return {string}
+ */
+proto.ran.trafficsim.types.Tower.prototype.getPlmnid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.ran.trafficsim.types.Tower} returns this
+ */
+proto.ran.trafficsim.types.Tower.prototype.setPlmnid = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional Point location = 3;
  * @return {?proto.ran.trafficsim.types.Point}
  */
 proto.ran.trafficsim.types.Tower.prototype.getLocation = function() {
   return /** @type{?proto.ran.trafficsim.types.Point} */ (
-    jspb.Message.getWrapperField(this, proto.ran.trafficsim.types.Point, 2));
+    jspb.Message.getWrapperField(this, proto.ran.trafficsim.types.Point, 3));
 };
 
 
@@ -1846,7 +1877,7 @@ proto.ran.trafficsim.types.Tower.prototype.getLocation = function() {
  * @return {!proto.ran.trafficsim.types.Tower} returns this
 */
 proto.ran.trafficsim.types.Tower.prototype.setLocation = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
@@ -1864,33 +1895,15 @@ proto.ran.trafficsim.types.Tower.prototype.clearLocation = function() {
  * @return {boolean}
  */
 proto.ran.trafficsim.types.Tower.prototype.hasLocation = function() {
-  return jspb.Message.getField(this, 2) != null;
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
 /**
- * optional string color = 3;
+ * optional string color = 4;
  * @return {string}
  */
 proto.ran.trafficsim.types.Tower.prototype.getColor = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.ran.trafficsim.types.Tower} returns this
- */
-proto.ran.trafficsim.types.Tower.prototype.setColor = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
-};
-
-
-/**
- * optional string ecID = 4;
- * @return {string}
- */
-proto.ran.trafficsim.types.Tower.prototype.getEcid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -1899,35 +1912,17 @@ proto.ran.trafficsim.types.Tower.prototype.getEcid = function() {
  * @param {string} value
  * @return {!proto.ran.trafficsim.types.Tower} returns this
  */
-proto.ran.trafficsim.types.Tower.prototype.setEcid = function(value) {
+proto.ran.trafficsim.types.Tower.prototype.setColor = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional string plmnID = 5;
- * @return {string}
- */
-proto.ran.trafficsim.types.Tower.prototype.getPlmnid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.ran.trafficsim.types.Tower} returns this
- */
-proto.ran.trafficsim.types.Tower.prototype.setPlmnid = function(value) {
-  return jspb.Message.setProto3StringField(this, 5, value);
-};
-
-
-/**
- * optional uint32 maxUEs = 6;
+ * optional uint32 maxUEs = 5;
  * @return {number}
  */
 proto.ran.trafficsim.types.Tower.prototype.getMaxues = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
@@ -1936,16 +1931,16 @@ proto.ran.trafficsim.types.Tower.prototype.getMaxues = function() {
  * @return {!proto.ran.trafficsim.types.Tower} returns this
  */
 proto.ran.trafficsim.types.Tower.prototype.setMaxues = function(value) {
-  return jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
 /**
- * repeated string neighbors = 7;
+ * repeated string neighbors = 6;
  * @return {!Array<string>}
  */
 proto.ran.trafficsim.types.Tower.prototype.getNeighborsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 7));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 6));
 };
 
 
@@ -1954,7 +1949,7 @@ proto.ran.trafficsim.types.Tower.prototype.getNeighborsList = function() {
  * @return {!proto.ran.trafficsim.types.Tower} returns this
  */
 proto.ran.trafficsim.types.Tower.prototype.setNeighborsList = function(value) {
-  return jspb.Message.setField(this, 7, value || []);
+  return jspb.Message.setField(this, 6, value || []);
 };
 
 
@@ -1964,7 +1959,7 @@ proto.ran.trafficsim.types.Tower.prototype.setNeighborsList = function(value) {
  * @return {!proto.ran.trafficsim.types.Tower} returns this
  */
 proto.ran.trafficsim.types.Tower.prototype.addNeighbors = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 7, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 6, value, opt_index);
 };
 
 
@@ -1978,11 +1973,11 @@ proto.ran.trafficsim.types.Tower.prototype.clearNeighborsList = function() {
 
 
 /**
- * optional float txPowerdB = 8;
+ * optional float txPowerdB = 7;
  * @return {number}
  */
 proto.ran.trafficsim.types.Tower.prototype.getTxpowerdb = function() {
-  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 8, 0.0));
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 7, 0.0));
 };
 
 
@@ -1991,7 +1986,47 @@ proto.ran.trafficsim.types.Tower.prototype.getTxpowerdb = function() {
  * @return {!proto.ran.trafficsim.types.Tower} returns this
  */
 proto.ran.trafficsim.types.Tower.prototype.setTxpowerdb = function(value) {
-  return jspb.Message.setProto3FloatField(this, 8, value);
+  return jspb.Message.setProto3FloatField(this, 7, value);
+};
+
+
+/**
+ * map<string, string> crntiMap = 9;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.ran.trafficsim.types.Tower.prototype.getCrntimapMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 9, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.ran.trafficsim.types.Tower} returns this
+ */
+proto.ran.trafficsim.types.Tower.prototype.clearCrntimapMap = function() {
+  this.getCrntimapMap().clear();
+  return this;};
+
+
+/**
+ * optional uint32 crntiIndex = 10;
+ * @return {number}
+ */
+proto.ran.trafficsim.types.Tower.prototype.getCrntiindex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.ran.trafficsim.types.Tower} returns this
+ */
+proto.ran.trafficsim.types.Tower.prototype.setCrntiindex = function(value) {
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 

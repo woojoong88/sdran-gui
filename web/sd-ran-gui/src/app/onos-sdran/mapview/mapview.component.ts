@@ -140,7 +140,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
             } else if (resp.getType() === Type.REMOVED) {
                 this.deleteTower(resp.getTower());
             } else {
-                console.warn('Unhandled Route response type', resp.getType(), 'for', resp.getTower().getName());
+                console.warn('Unhandled Route response type', resp.getType(), 'for', resp.getTower().getEcid());
             }
         }, err => {
             this.connectivityService.showVeil([
@@ -255,7 +255,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
         };
         const towerMarker = new google.maps.Marker();
         towerMarker.setPosition(pos);
-        towerMarker.setTitle(tower.getName() + ' ' + this.roundNumber(tower.getTxpowerdb(), 'dB'));
+        towerMarker.setTitle(tower.getEcid() + ' ' + this.roundNumber(tower.getTxpowerdb(), 'dB'));
         towerMarker.setOptions({
                 icon: {
                     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
@@ -267,7 +267,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
             }
         );
-        this.towerMarkers.set(tower.getName(), towerMarker);
+        this.towerMarkers.set(tower.getEcid(), towerMarker);
 
         const powerCircle = new google.maps.Circle({
             center: pos,
@@ -279,7 +279,7 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
         } as google.maps.CircleOptions);
         powerCircle.setMap(this.googleMap._googleMap);
         powerCircle.setVisible(this.showPower);
-        this.powerCircleMap.set(tower.getName(), powerCircle);
+        this.powerCircleMap.set(tower.getEcid(), powerCircle);
     }
 
     private powerToRadius(powerdB: number): number {
@@ -300,10 +300,10 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private updateTower(tower: Tower): void {
-        console.log('Updated tower power', tower.getName(), this.roundNumber(tower.getTxpowerdb(), 'dB'));
-        this.powerCircleMap.get(tower.getName()).setRadius(this.powerToRadius(tower.getTxpowerdb()));
-        const previousIcon = this.towerMarkers.get(tower.getName()).getIcon();
-        this.towerMarkers.get(tower.getName()).setIcon({
+        console.log('Updated tower power', tower.getEcid(), this.roundNumber(tower.getTxpowerdb(), 'dB'));
+        this.powerCircleMap.get(tower.getEcid()).setRadius(this.powerToRadius(tower.getTxpowerdb()));
+        const previousIcon = this.towerMarkers.get(tower.getEcid()).getIcon();
+        this.towerMarkers.get(tower.getEcid()).setIcon({
             path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
             scale: this.zoom * TOWER_SCALING_FACTOR_HIGHLIGHT,
             strokeColor: 'red',
@@ -311,15 +311,15 @@ export class MapviewComponent implements OnInit, AfterViewInit, OnDestroy {
             fillColor: tower.getColor(),
             fillOpacity: 1,
         });
-        this.towerMarkers.get(tower.getName()).setTitle(tower.getName() + ' ' + this.roundNumber(tower.getTxpowerdb(), 'dB'));
+        this.towerMarkers.get(tower.getEcid()).setTitle(tower.getEcid() + ' ' + this.roundNumber(tower.getTxpowerdb(), 'dB'));
         setTimeout(() => {
-            this.towerMarkers.get(tower.getName()).setIcon(previousIcon);
+            this.towerMarkers.get(tower.getEcid()).setIcon(previousIcon);
         }, FLASH_FOR_MS);
     }
 
     private deleteTower(tower: Tower) {
-        this.powerCircleMap.delete(tower.getName());
-        this.towerMarkers.delete(tower.getName());
+        this.powerCircleMap.delete(tower.getEcid());
+        this.towerMarkers.delete(tower.getEcid());
     }
 
     private initRoute(route: Route): void {
